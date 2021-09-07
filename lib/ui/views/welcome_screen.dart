@@ -1,6 +1,8 @@
 import 'package:fitness_app_flutter/constants/welcome_screen_data.dart';
 import 'package:flutter/material.dart';
 
+import 'dashboard.dart';
+
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
 
@@ -115,6 +117,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         onPressed: () {
                           // TODO: Create a stateful file dashboard.dart and navigate to it
                           print('Naviagte to Dashboard');
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoard()));
                         },
                         child: Text('Continue'),
                       ),
