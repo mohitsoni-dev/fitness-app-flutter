@@ -1,4 +1,5 @@
 import 'package:fitness_app_flutter/constants/welcome_screen_data.dart';
+import 'package:fitness_app_flutter/ui/views/user_info.dart';
 import 'package:flutter/material.dart';
 
 import 'dashboard.dart';
@@ -115,14 +116,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       padding: EdgeInsets.only(bottom: 108.0),
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pushReplacement(
+                          Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => DashBoard(),
+                              builder: (context) => UserInfo(),
                             ),
                           );
                         },
-                        child: Text('Continue'),
+                        child: Text('Get Started'),
                       ),
                     ),
                   )
