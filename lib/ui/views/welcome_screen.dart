@@ -115,9 +115,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       padding: EdgeInsets.only(bottom: 108.0),
                       child: ElevatedButton(
                         onPressed: () {
-                          // TODO: Create a stateful file dashboard.dart and navigate to it
-                          print('Naviagte to Dashboard');
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoard()));
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DashBoard(),
+                            ),
+                          );
                         },
                         child: Text('Continue'),
                       ),
