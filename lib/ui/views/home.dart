@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -78,7 +76,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             ListView.builder(
-              scrollDirection: Axis.horizontal,
+                scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
                 itemCount: main_features_names.length,
                 itemBuilder: (BuildContext context, int index) {
@@ -94,7 +92,6 @@ class HomePage extends StatelessWidget {
                             child: Card(
                               elevation: 10,
                               child: Text("${main_features_names[index]}"),
-
                             ),
                           ),
                         ),
