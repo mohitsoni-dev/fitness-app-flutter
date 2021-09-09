@@ -69,10 +69,9 @@ class _UserInfoState extends State<UserInfo> {
                     ElevatedButton(
                       onPressed: () {
                         if (currentPage == 3) {
-                          Navigator.of(context).pushAndRemoveUntil(
+                          Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
-                                  builder: (context) => DashBoard()),
-                              (route) => false);
+                                  builder: (context) => DashBoard()));
                           return;
                         }
                         _pageViewController.nextPage(

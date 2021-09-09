@@ -19,7 +19,7 @@ class _DashBoardState extends State<DashBoard> {
   int selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
-  static const List<Widget> _widgetOptions = <Widget>[
+  List<Widget> _widgetOptions = <Widget>[
     // TODO: Replace these Texts with repective dart file
     // For example:
 
