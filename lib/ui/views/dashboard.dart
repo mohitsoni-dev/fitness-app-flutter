@@ -3,6 +3,9 @@ import 'package:flutter/rendering.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 
+import 'home.dart';
+import 'settings.dart';
+
 class DashBoard extends StatefulWidget {
   const DashBoard({Key? key}) : super(key: key);
 
@@ -19,14 +22,17 @@ class _DashBoardState extends State<DashBoard> {
   static const List<Widget> _widgetOptions = <Widget>[
     // TODO: Replace these Texts with repective dart file
     // For example:
-    //   Home(),
+
     //   History(),
     //   Profile(),
-    //   Settings(),
-    Text('Home', style: optionStyle),
+
+    //Text('Home', style: optionStyle),
+
+    HomePage(),
     Text('Likes', style: optionStyle),
     Text('Search', style: optionStyle),
-    Text('Settings', style: optionStyle),
+    Settings(),
+    //Text('Settings', style: optionStyle),
   ];
 
   void _tabChanged(int index) {
