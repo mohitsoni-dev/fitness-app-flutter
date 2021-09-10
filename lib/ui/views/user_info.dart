@@ -1,4 +1,5 @@
 import 'package:fitness_app_flutter/ui/views/dashboard.dart';
+import 'package:fitness_app_flutter/ui/views/user_specificatios.dart';
 import 'package:flutter/material.dart';
 
 class UserInfo extends StatefulWidget {
@@ -11,6 +12,19 @@ class UserInfo extends StatefulWidget {
 class _UserInfoState extends State<UserInfo> {
   double? currentPage = 0.0;
   final _pageViewController = new PageController();
+
+  List<Widget> _pages = [
+    UserSpecification(),
+    Center(
+      child: Text('Another Page'),
+    ),
+    Center(
+      child: Text('Another Page'),
+    ),
+    Center(
+      child: Text('Another Page'),
+    ),
+  ];
 
   List<Widget> indicator() => List<Widget>.generate(
         4,
@@ -37,14 +51,14 @@ class _UserInfoState extends State<UserInfo> {
             PageView.builder(
               physics: NeverScrollableScrollPhysics(),
               controller: _pageViewController,
-              itemCount: 5,
+              itemCount: 4,
               itemBuilder: (BuildContext context, int index) {
                 _pageViewController.addListener(() {
                   setState(() {
                     currentPage = _pageViewController.page;
                   });
                 });
-                return Center(child: Text('$index $currentPage'));
+                return _pages[currentPage!.round()];
               },
             ),
             Align(
