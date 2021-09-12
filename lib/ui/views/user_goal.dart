@@ -1,16 +1,15 @@
 import 'package:fitness_app_flutter/constants/shared_preferences.dart';
 import 'package:fitness_app_flutter/ui/widgets/goal_container.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class UserSpecification extends StatefulWidget {
-  const UserSpecification({Key? key}) : super(key: key);
+class UserGoal extends StatefulWidget {
+  const UserGoal({Key? key}) : super(key: key);
 
   @override
-  _UserSpecificationState createState() => _UserSpecificationState();
+  _UserGoalState createState() => _UserGoalState();
 }
 
-class _UserSpecificationState extends State<UserSpecification> {
+class _UserGoalState extends State<UserGoal> {
   Goal selectedGoal = Goal.none;
 
   handleGoalSelect(Goal selectedGoal) async {

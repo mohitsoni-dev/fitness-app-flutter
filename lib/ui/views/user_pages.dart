@@ -1,5 +1,6 @@
 import 'package:fitness_app_flutter/ui/views/dashboard.dart';
-import 'package:fitness_app_flutter/ui/views/user_specificatios.dart';
+import 'package:fitness_app_flutter/ui/views/user_data.dart';
+import 'package:fitness_app_flutter/ui/views/user_goal.dart';
 import 'package:flutter/material.dart';
 
 class UserInfo extends StatefulWidget {
@@ -14,10 +15,8 @@ class _UserInfoState extends State<UserInfo> {
   final _pageViewController = new PageController();
 
   List<Widget> _pages = [
-    UserSpecification(),
-    Center(
-      child: Text('Another Page'),
-    ),
+    UserGoal(),
+    UserData(),
     Center(
       child: Text('Another Page'),
     ),

@@ -1,5 +1,5 @@
 import 'package:fitness_app_flutter/constants/welcome_screen_data.dart';
-import 'package:fitness_app_flutter/ui/views/user_info.dart';
+import 'package:fitness_app_flutter/ui/views/user_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'dashboard.dart';
