@@ -1,6 +1,12 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 const String USER_GOAL = 'user_goal';
+const String USER_DIET = 'user_diet';
+const String USER_NAME = 'user_name';
+const String IS_USER_LOGGED = 'is_user_logged';
+const String USER_WEIGHT = 'user_weight';
+const String USER_HEIGHT = 'user_height';
+const String USER_AGE = 'user_age';
 
 addStringToSF({String? tag, String? string}) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -22,18 +28,17 @@ addIntToSF({String? tag, int? value}) async {
   prefs.setInt(tag!, value!);
 }
 
-// getStringValuesSF() async {
-//   SharedPreferences prefs = await SharedPreferences.getInstance();
-//   //Return String
-//   String stringValue = prefs.getString('stringValue');
-//   return stringValue;
-// }
-// getBoolValuesSF() async {
-//   SharedPreferences prefs = await SharedPreferences.getInstance();
-//   //Return bool
-//   bool boolValue = prefs.getBool('boolValue');
-//   return boolValue;
-// }
+getStringValuesSF(String? tag) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String stringValue = prefs.getString(tag!) ?? '';
+  return stringValue;
+}
+
+getBoolValuesSF(String? tag) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool boolValue = prefs.getBool(tag!) ?? false;
+  return boolValue;
+}
 // getIntValuesSF() async {
 //   SharedPreferences prefs = await SharedPreferences.getInstance();
 //   //Return int

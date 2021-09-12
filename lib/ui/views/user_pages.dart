@@ -1,5 +1,7 @@
+import 'package:fitness_app_flutter/constants/shared_preferences.dart';
 import 'package:fitness_app_flutter/ui/views/dashboard.dart';
 import 'package:fitness_app_flutter/ui/views/user_data.dart';
+import 'package:fitness_app_flutter/ui/views/user_diet.dart';
 import 'package:fitness_app_flutter/ui/views/user_goal.dart';
 import 'package:flutter/material.dart';
 
@@ -17,16 +19,11 @@ class _UserInfoState extends State<UserInfo> {
   List<Widget> _pages = [
     UserGoal(),
     UserData(),
-    Center(
-      child: Text('Another Page'),
-    ),
-    Center(
-      child: Text('Another Page'),
-    ),
+    UserDiet(),
   ];
 
   List<Widget> indicator() => List<Widget>.generate(
-        4,
+        3,
         (index) => Container(
           margin: EdgeInsets.symmetric(horizontal: 4.0),
           height: 6.0,
@@ -50,7 +47,7 @@ class _UserInfoState extends State<UserInfo> {
             PageView.builder(
               physics: NeverScrollableScrollPhysics(),
               controller: _pageViewController,
-              itemCount: 4,
+              itemCount: 3,
               itemBuilder: (BuildContext context, int index) {
                 _pageViewController.addListener(() {
                   setState(() {
@@ -80,8 +77,8 @@ class _UserInfoState extends State<UserInfo> {
                 child: Column(
                   children: [
                     ElevatedButton(
-                      onPressed: () {
-                        if (currentPage == 3) {
+                      onPressed: () async {
+                        if (currentPage == 2) {
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                   builder: (context) => DashBoard()));
@@ -93,18 +90,20 @@ class _UserInfoState extends State<UserInfo> {
                       },
                       child: Text('Next step'),
                     ),
-                    OutlinedButton(
-                      onPressed: () {
-                        if (currentPage == 0) {
-                          Navigator.pop(context);
-                          return;
-                        }
-                        _pageViewController.previousPage(
-                            duration: Duration(milliseconds: 500),
-                            curve: Curves.easeIn);
-                      },
-                      child: Text('Previous Step'),
-                    )
+                    currentPage != 0
+                        ? OutlinedButton(
+                            onPressed: () {
+                              if (currentPage == 0) {
+                                Navigator.pop(context);
+                                return;
+                              }
+                              _pageViewController.previousPage(
+                                  duration: Duration(milliseconds: 500),
+                                  curve: Curves.easeIn);
+                            },
+                            child: Text('Previous Step'),
+                          )
+                        : Container()
                   ],
                 ),
               ),

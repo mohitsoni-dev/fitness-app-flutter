@@ -30,7 +30,7 @@ class _UserGoalState extends State<UserGoal> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              'What\'s you goal?',
+              'What\'s your goal?',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
             ),
             SizedBox(height: 24.0),

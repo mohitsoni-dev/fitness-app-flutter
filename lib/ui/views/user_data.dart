@@ -1,3 +1,4 @@
+import 'package:fitness_app_flutter/constants/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
 
@@ -10,9 +11,19 @@ class UserData extends StatefulWidget {
 
 class _UserDataState extends State<UserData> {
   String _name = '';
-  int _age = 20;
-  double _weight = 60.0;
-  double _height = 170.0;
+  int _age = 0;
+  double _weight = 0.0;
+  double _height = 0.0;
+  bool loading = false;
+
+  saveDataToSF() async {
+    loading = true;
+    await addStringToSF(tag: USER_NAME, string: _name);
+    await addDoubleToSF(tag: USER_WEIGHT, value: _weight);
+    await addDoubleToSF(tag: USER_HEIGHT, value: _height);
+    await addIntToSF(tag: USER_AGE, value: _age);
+    loading = false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +37,13 @@ class _UserDataState extends State<UserData> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Your basic information',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              Center(
+                child: Text(
+                  'Your basic information',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                ),
               ),
               SizedBox(height: 24.0),
               Text('Name', textAlign: TextAlign.left),
@@ -51,6 +64,7 @@ class _UserDataState extends State<UserData> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Weight in kgs*', textAlign: TextAlign.left),
                       Container(
@@ -59,7 +73,7 @@ class _UserDataState extends State<UserData> {
                         child: TextField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: '60.0',
+                            labelText: 'Weight',
                           ),
                           keyboardType: TextInputType.number,
                           onChanged: (text) {
@@ -72,6 +86,7 @@ class _UserDataState extends State<UserData> {
                     ],
                   ),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Height in cms*', textAlign: TextAlign.left),
                       Container(
@@ -80,7 +95,7 @@ class _UserDataState extends State<UserData> {
                         child: TextField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: '174.0',
+                            labelText: 'Height',
                           ),
                           keyboardType: TextInputType.number,
                           onChanged: (text) {
@@ -97,21 +112,38 @@ class _UserDataState extends State<UserData> {
               SizedBox(height: 20.0),
               Text('Age*', textAlign: TextAlign.left),
               SizedBox(height: 4.0),
-              NumberPicker(
-                value: _age,
-                minValue: 0,
-                maxValue: 100,
-                step: 1,
-                itemHeight: 80,
-                axis: Axis.horizontal,
-                onChanged: (value) => setState(() => _age = value),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(
-                    color: Colors.black26,
+              Center(
+                child: NumberPicker(
+                  value: _age,
+                  minValue: 0,
+                  maxValue: 100,
+                  step: 1,
+                  itemHeight: 80,
+                  axis: Axis.horizontal,
+                  onChanged: (value) {
+                    setState(() => _age = value);
+                  },
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(
+                      color: Colors.black26,
+                    ),
                   ),
                 ),
               ),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () async {
+                    await saveDataToSF();
+                  },
+                  child: Row(
+                    children: [
+                      loading ? CircularProgressIndicator() : Container(),
+                      Text('Save'),
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ),

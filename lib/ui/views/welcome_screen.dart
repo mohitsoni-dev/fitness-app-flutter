@@ -2,8 +2,6 @@ import 'package:fitness_app_flutter/constants/welcome_screen_data.dart';
 import 'package:fitness_app_flutter/ui/views/user_pages.dart';
 import 'package:flutter/material.dart';
 
-import 'dashboard.dart';
-
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
 
