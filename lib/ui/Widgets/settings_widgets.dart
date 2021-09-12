@@ -2,25 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 
 Widget threeDotWidget() {
-  return Padding(
-    padding: const EdgeInsets.only(top: 30.0),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: InkWell(
-            child: Icon(
-              Icons.more_horiz,
-              color: Colors.black,
-              size: 30,
+  return  InkWell(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.more_horiz,
+                color: Colors.black,
+                size: 30,
+              ),
             ),
             onTap: () {}, //TODO
-          ),
-        )
-      ],
-    ),
-  );
+          );
+
 }
 
 Widget profilePicWidget() {
