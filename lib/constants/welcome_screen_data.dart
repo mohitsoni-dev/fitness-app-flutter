@@ -1,4 +1,4 @@
-List kWelcomeScreenSlidesData = [
+const List kWelcomeScreenSlidesData = [
   {
     "header": "Learn",
     "index": 0,

@@ -116,7 +116,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       padding: EdgeInsets.only(bottom: 108.0),
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.push(
+                          Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                               builder: (context) => UserInfo(),
