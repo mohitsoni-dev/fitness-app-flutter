@@ -1,9 +1,11 @@
 import 'package:appbar_animated/appbar_animated.dart';
 import 'package:fitness_app_flutter/constants/shared_preferences.dart';
+import 'package:fitness_app_flutter/ui/Widgets/drawer_body.dart';
 import 'package:fitness_app_flutter/ui/widgets/workout_program_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:line_icons/line_icons.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -50,26 +52,49 @@ class _HomePageState extends State<HomePage> {
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
+            DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                  // color: Colors.blue,
+                  ),
+              child: Container(
+                //alignment: Alignment.centerLeft,
+                child: Flexible(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: CircleAvatar(
+                          radius: 35,
+                          backgroundColor: Colors.grey[300],
+                          child: Icon(
+                            LineIcons.userNinja,
+                            size: 35,
+                          ), //TODO user profile to be selected
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "User Name", //TODO
+                          style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ),
-              child: Text('Drawer Header'),
             ),
-            ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: const Text('Item 2'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
+            listViewRow("Workout", LineIcons.clock),
+            listViewRow("Saved Workout", LineIcons.download),
+            listViewRow("Activity", LineIcons.running),
+            listViewRow("Feed", Icons.feed),
+            listViewRow("Inbox", LineIcons.inbox),
+            listViewRow("Settings", Icons.settings),
           ],
         ),
       ),
@@ -343,3 +368,4 @@ Widget Trainingprograme() {
     ],
   );
 }
+
