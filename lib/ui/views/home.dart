@@ -4,6 +4,7 @@ import 'package:fitness_app_flutter/ui/widgets/workout_program_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:line_icons/line_icons.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -99,13 +100,9 @@ class _HomePageState extends State<HomePage> {
                         'Looks like it\'s a good dat to have a solid workout! Don\'t miss it!',
                         style: TextStyle(fontSize: 13),
                       ),
-                      SizedBox(height: 8.0),
-                      Divider(
-                        color: Colors.grey,
-                      ),
-                      SizedBox(height: 8.0),
+                      PaddedDivider(),
                       Text(
-                        'TRENDING WORKOUTS',
+                        'WORKOUT PROGRAMS',
                         style: TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.bold,
@@ -114,18 +111,35 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(height: 8.0),
                       SizedBox(
-                        height: 350,
+                        height: 308,
                         child: ListView(
                           // This next line does the trick.
                           scrollDirection: Axis.horizontal,
                           children: <Widget>[
-                            WorkoutProgramCard(),
-                            WorkoutProgramCard(),
-                            WorkoutProgramCard(),
-                            WorkoutProgramCard(),
+                            WorkoutProgramCard(
+                              title: 'Chest Workout',
+                              desc:
+                                  'This workout program is design to build your chest muscles',
+                            ),
+                            WorkoutProgramCard(
+                              title: 'Legs Workout',
+                              desc:
+                                  'This workout program is design to build your chest muscles',
+                            ),
+                            WorkoutProgramCard(
+                              title: 'Arms Workout',
+                              desc:
+                                  'This workout program is design to build your chest muscles',
+                            ),
+                            WorkoutProgramCard(
+                              title: 'Shoulder Workout',
+                              desc:
+                                  'This workout program is design to build your chest muscles',
+                            ),
                           ],
                         ),
-                      )
+                      ),
+                      PaddedDivider(),
                     ],
                   ),
                 ),
@@ -286,6 +300,12 @@ class _HomePageState extends State<HomePage> {
 
   Widget _appBar(context, bgColor, color) {
     return AppBar(
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: Icon(LineIcons.bellAlt, color: Colors.black),
+        ),
+      ],
       backgroundColor: bgColor,
       elevation: 0,
       leading: IconButton(
@@ -297,6 +317,25 @@ class _HomePageState extends State<HomePage> {
         ),
         onPressed: () => scaffoldKey.currentState!.openDrawer(),
       ),
+    );
+  }
+}
+
+class PaddedDivider extends StatelessWidget {
+  const PaddedDivider({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(height: 8.0),
+        Divider(
+          color: Colors.grey,
+        ),
+        SizedBox(height: 8.0),
+      ],
     );
   }
 }
