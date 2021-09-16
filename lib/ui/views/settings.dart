@@ -1,4 +1,4 @@
-import 'package:fitness_app_flutter/ui/Widgets/settings_widgets.dart';
+import 'package:fitness_app_flutter/ui/widgets/settings_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

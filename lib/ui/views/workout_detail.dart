@@ -1,4 +1,5 @@
 import 'package:appbar_animated/appbar_animated.dart';
+import 'package:fitness_app_flutter/ui/widgets/workout_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -20,6 +21,15 @@ class _WorkoutDetailState extends State<WorkoutDetail> {
     begin: Colors.white,
     end: Colors.black,
   );
+  List<String> _workoutsList = [
+    'Jumping jacks',
+    'Push ups',
+    'Incline Push ups',
+    'ssdase Push ups',
+    'safasPush ups',
+    'asfPush ups'
+  ];
+
   Widget _appBar(context, bgColor, color) {
     return AppBar(
       backgroundColor: bgColor,
@@ -34,6 +44,16 @@ class _WorkoutDetailState extends State<WorkoutDetail> {
         onPressed: () => Navigator.pop(context),
       ),
     );
+  }
+
+  void reorderData(int oldindex, int newindex) {
+    setState(() {
+      if (newindex > oldindex) {
+        newindex -= 1;
+      }
+      final items = _workoutsList.removeAt(oldindex);
+      _workoutsList.insert(newindex, items);
+    });
   }
 
   @override
@@ -89,6 +109,18 @@ class _WorkoutDetailState extends State<WorkoutDetail> {
                         ],
                       ),
                       Divider(),
+                      ReorderableListView(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        children: [
+                          for (String workout in _workoutsList)
+                            WorkoutListItem(
+                              workout: workout,
+                              key: ValueKey(workout),
+                            )
+                        ],
+                        onReorder: reorderData,
+                      ),
                     ],
                   ),
                 ),
@@ -100,3 +132,4 @@ class _WorkoutDetailState extends State<WorkoutDetail> {
     );
   }
 }
+

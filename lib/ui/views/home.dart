@@ -1,6 +1,6 @@
 import 'package:appbar_animated/appbar_animated.dart';
 import 'package:fitness_app_flutter/constants/shared_preferences.dart';
-import 'package:fitness_app_flutter/ui/Widgets/drawer_body.dart';
+import 'package:fitness_app_flutter/ui/widgets/drawer_body.dart';
 import 'package:fitness_app_flutter/ui/widgets/workout_program_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(height: 8.0),
                       SizedBox(
-                        height: 308,
+                        height: 320,
                         child: ListView(
                           // This next line does the trick.
                           scrollDirection: Axis.horizontal,
@@ -406,4 +406,3 @@ Widget Trainingprograme() {
     ],
   );
 }
-
