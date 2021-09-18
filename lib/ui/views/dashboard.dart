@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 
+import 'explore.dart';
 import 'home.dart';
 import 'settings.dart';
 
@@ -29,7 +30,8 @@ class _DashBoardState extends State<DashBoard> {
     //Text('Home', style: optionStyle),
 
     HomePage(),
-    Text('Likes', style: optionStyle),
+    ExplorePage(),
+   // Text('Likes', style: optionStyle),
     Text('Search', style: optionStyle),
     Settings(),
     //Text('Settings', style: optionStyle),
