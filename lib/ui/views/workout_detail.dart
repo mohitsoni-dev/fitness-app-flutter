@@ -1,4 +1,5 @@
 import 'package:appbar_animated/appbar_animated.dart';
+import 'package:fitness_app_flutter/ui/views/exercise_view.dart';
 import 'package:fitness_app_flutter/ui/widgets/workout_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
@@ -79,32 +80,54 @@ class _WorkoutDetailState extends State<WorkoutDetail> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Chest workout',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24.0,
-                        ),
-                      ),
-                      SizedBox(height: 8.0),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          OutlinedButton(
-                            onPressed: () {},
-                            child: Text(
-                              '12 WORKOUTS',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
-                            ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Chest workout',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 24.0,
+                                ),
+                              ),
+                              SizedBox(height: 8.0),
+                              Row(
+                                children: [
+                                  OutlinedButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      '12 WORKOUTS',
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 12),
+                                    ),
+                                  ),
+                                  SizedBox(width: 8.0),
+                                  OutlinedButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      '30 MINUTES',
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 12),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ],
                           ),
-                          SizedBox(width: 8.0),
-                          OutlinedButton(
-                            onPressed: () {},
-                            child: Text(
-                              '30 MINUTES',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                          FloatingActionButton.extended(
+                            label: Text("START"),
+                            onPressed: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ExerciseView(
+                                  workouts: _workoutsList,
+                                ),
+                              ),
                             ),
+                            backgroundColor: Colors.black,
                           )
                         ],
                       ),
@@ -132,4 +155,3 @@ class _WorkoutDetailState extends State<WorkoutDetail> {
     );
   }
 }
-
