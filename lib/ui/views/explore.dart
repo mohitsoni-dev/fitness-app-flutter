@@ -1,4 +1,4 @@
-import 'package:fitness_app_flutter/ui/Widgets/explore_body.dart';
+import 'package:fitness_app_flutter/ui/widgets/explore_body.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
