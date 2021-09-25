@@ -19,6 +19,7 @@ dependencies:
   numberpicker: ^2.1.1
   appbar_animated: ^0.0.1
   circular_countdown_timer: ^0.2.0
+  timer_count_down: ^2.2.0
 
 dev_dependencies:
   flutter_test:
@@ -26,5 +27,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
-

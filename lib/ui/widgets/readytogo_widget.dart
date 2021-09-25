@@ -15,6 +15,8 @@ class ReadyToGoWidget extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
+        Image.network(
+            'https://i.giphy.com/media/ckMk3RKUK29lziaspI/giphy.webp'),
         Text(
           'READY TO GO!',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),

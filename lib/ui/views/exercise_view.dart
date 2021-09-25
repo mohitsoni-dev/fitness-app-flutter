@@ -1,5 +1,6 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:fitness_app_flutter/ui/widgets/readytogo_widget.dart';
+import 'package:fitness_app_flutter/ui/widgets/workout_widget.dart';
 import 'package:flutter/material.dart';
 
 class ExerciseView extends StatefulWidget {
@@ -21,7 +22,7 @@ class _ExerciseViewState extends State<ExerciseView> {
           onComplete: () => nextStep(),
         );
       default:
-        return Text('hello');
+        return WorkoutWidget();
     }
   }
 
@@ -38,8 +39,7 @@ class _ExerciseViewState extends State<ExerciseView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image.network(
-                'https://i.giphy.com/media/ckMk3RKUK29lziaspI/giphy.webp'),
+            
             showWidget()
           ],
         ),
