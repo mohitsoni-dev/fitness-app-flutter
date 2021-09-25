@@ -18,7 +18,8 @@ Widget feedSection(BuildContext context) {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 10.0, bottom: 10, top: 10),
+                  padding:
+                      const EdgeInsets.only(left: 10.0, bottom: 10, top: 10),
                   child: Text(
                     "Science Just Confirmed Elon Musk's Favorite Interview ",
                     //maxLines: 3,
