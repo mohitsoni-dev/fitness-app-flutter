@@ -19,14 +19,18 @@ class _ExplorePageState extends State<ExplorePage> {
       ),
       body: SingleChildScrollView(
         child: Column(
+
           mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize:MainAxisSize.min,
           children: [
             Container(
               height: 75,
+              width: MediaQuery.of(context).size.width,alignment: Alignment.center,
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Text(
-                  "Your Daily Health News",
+                  "Your Daily Health News",softWrap: false,
+                  maxLines: 2,
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
               ),
