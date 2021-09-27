@@ -31,12 +31,14 @@ Widget profilePicWidget() {
 }
 
 Widget userNameTextWidget(String username) {
+
   return Padding(
     padding: const EdgeInsets.only(top: 8.0, left: 8, right: 8),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
+
           "$username",
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         )
@@ -69,12 +71,12 @@ Widget midViewCaptionTextWidget(String captionText) {
 
 Widget midViewUnitsTextWidget(String unit) {
   return Text(
-    "100 kg",
-    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+    "$unit",
+    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
   );
 }
 
-Widget midview(BuildContext context) {
+Widget midview(BuildContext context,String userWeight,String bmi,String userHeight) {
   return Padding(
     padding: const EdgeInsets.only(top: 25.0),
     child: Container(
@@ -116,17 +118,17 @@ Widget midview(BuildContext context) {
               Padding(
                   padding: const EdgeInsets.only(left: 10.0, top: 4),
                   child: midViewUnitsTextWidget(
-                      "100kg") //TODO weight unit to be added
+                      "$userWeight kg")
                   ),
               Padding(
                   padding: const EdgeInsets.only(top: 4.0),
                   child: midViewUnitsTextWidget(
-                      "100kg") //TODO BMI unit to be added
-                  ),
+                      "$bmi kg/m2 ")
+              ),
               Padding(
                   padding: const EdgeInsets.only(right: 2.0, top: 4),
                   child: midViewUnitsTextWidget(
-                      "100kg") //TODO height unit to be added
+                      "$userHeight m")
                   ),
             ],
           ),
