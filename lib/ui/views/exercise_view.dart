@@ -1,4 +1,6 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'package:fitness_app_flutter/core/data/workouts_data.dart';
+import 'package:fitness_app_flutter/core/models/workout.dart';
 import 'package:fitness_app_flutter/ui/widgets/readytogo_widget.dart';
 import 'package:fitness_app_flutter/ui/widgets/workout_widget.dart';
 import 'package:flutter/material.dart';
@@ -15,15 +17,18 @@ class _ExerciseViewState extends State<ExerciseView> {
   int _page = -1;
 
   Widget showWidget() {
-    switch (_page) {
-      case -1:
-        return ReadyToGoWidget(
-          controller: _controller,
-          onComplete: () => nextStep(),
-        );
-      default:
-        return WorkoutWidget();
-    }
+    if (_page < 0)
+      return ReadyToGoWidget(
+        controller: _controller,
+        onComplete: () => nextStep(),
+      );
+    else if (_page >= chest_workouts.length)
+      return Center(child: Text('hi'));
+    else
+      return WorkoutWidget(
+        onSkip: nextStep,
+        workout: Workout.fromJson(chest_workouts[_page]),
+      );
   }
 
   void nextStep() {
@@ -38,10 +43,7 @@ class _ExerciseViewState extends State<ExerciseView> {
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            
-            showWidget()
-          ],
+          children: [showWidget()],
         ),
       ),
     );

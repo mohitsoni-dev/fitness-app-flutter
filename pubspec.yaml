@@ -20,8 +20,11 @@ dependencies:
   appbar_animated: ^0.0.1
   circular_countdown_timer: ^0.2.0
   timer_count_down: ^2.2.0
+  json_annotation:
+  json_serializable:
 
 dev_dependencies:
+  build_runner: ^2.1.2
   flutter_test:
     sdk: flutter
 
