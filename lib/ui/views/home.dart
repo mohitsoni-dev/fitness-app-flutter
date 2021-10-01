@@ -4,7 +4,6 @@ import 'package:fitness_app_flutter/ui/widgets/drawer_body.dart';
 import 'package:fitness_app_flutter/ui/widgets/workout_program_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:line_icons/line_icons.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,12 +14,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static const List<String> main_features_names = [
-    "feature-1",
-    "feature-2",
-    "feature-3",
-    "feature-4"
-  ];
   String username = '';
 
   Future<bool> getDataFromCache() async {
@@ -59,40 +52,37 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 //alignment: Alignment.centerLeft,
 
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Padding(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CircleAvatar(
+                        radius: 35,
+                        backgroundColor: Colors.grey[300],
+                        child: Icon(
+                          LineIcons.userNinja,
+                          size: 35,
+                        ), //TODO user profile to be selected
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: CircleAvatar(
-                          radius: 35,
-                          backgroundColor: Colors.grey[300],
-                          child: Icon(
-                            LineIcons.userNinja,
-                            size: 35,
-                          ), //TODO user profile to be selected
+                        child: Text(
+                          " $username",
+                          maxLines: 2,
+                          style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1),
                         ),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          
-                            child: Text(
-                              " $username",
-                              maxLines: 2,
-                              style: TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: 1),
-                            ),
-
-                        ),
-                      )
-                    ],
-                  ),
-
+                    )
+                  ],
+                ),
               ),
             ),
             listViewRow("Workout", LineIcons.clock),
@@ -175,7 +165,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             );
-
           } else {
             return Center(child: CircularProgressIndicator());
           }
