@@ -1,6 +1,5 @@
 import 'package:fitness_app_flutter/constants/shared_preferences.dart';
 import 'package:fitness_app_flutter/ui/Widgets/settings_widgets.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -13,29 +12,27 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-
   String userName = "";
-  String userHeight ="";
-  String userWeight="";
-  //double bmi= 0.0;
-  String bmi='';
+  String userHeight = "";
+  String userWeight = "";
 
+  //double bmi= 0.0;
+  String bmi = '';
 
   changeType() {
-    bmi = (double.parse(userWeight) / double.parse(userHeight)  * double.parse(userHeight)).toString();
+    bmi = (double.parse(userWeight) /
+            double.parse(userHeight) *
+            double.parse(userHeight))
+        .toString();
   }
-
-
-
 
   Future<bool> getDataFromCache() async {
     userName = await getStringValuesSF(USER_NAME);
     userHeight = await getStringValuesSF(USER_HEIGHT);
-    userWeight= await getStringValuesSF(USER_WEIGHT);
+    userWeight = await getStringValuesSF(USER_WEIGHT);
     print(userName);
     return true;
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +58,7 @@ class _SettingsState extends State<Settings> {
 
                       userNameTextWidget("$userName"),
                       //TODO values to be added from database
-                      midview(context,userWeight,bmi.toString(),userHeight),
+                      midview(context, userWeight, bmi.toString(), userHeight),
                       DividerWidget(),
                       weeklyProgressTextWiget("Weekly Progress"),
                       //TODO progress value to be added from database
@@ -76,13 +73,11 @@ class _SettingsState extends State<Settings> {
                     ],
                   ),
                 );
+              } else {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
               }
-              else {
-                return Center(child: CircularProgressIndicator(),);
-              }
-            }
-
-        )
-    );
+            }));
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 
+import 'CommunityPost.dart';
 import 'explore.dart';
 import 'home.dart';
 import 'settings.dart';
@@ -22,17 +23,10 @@ class _DashBoardState extends State<DashBoard> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
   List<Widget> _widgetOptions = <Widget>[
     // TODO: Replace these Texts with repective dart file
-    // For example:
-
-    //   History(),
-    //   Profile(),
-
-    //Text('Home', style: optionStyle),
 
     HomePage(),
     ExplorePage(),
-   // Text('Likes', style: optionStyle),
-    Text('Search', style: optionStyle),
+    CommunityPost(),
     Settings(),
     //Text('Settings', style: optionStyle),
   ];
