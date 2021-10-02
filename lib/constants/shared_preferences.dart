@@ -45,9 +45,8 @@ getBoolValuesSF(String? tag) async {
 //   int intValue = prefs.getInt('intValue');
 //   return intValue;
 // }
-// getDoubleValuesSF() async {
-//   SharedPreferences prefs = await SharedPreferences.getInstance();
-//   //Return double
-//   double doubleValue = prefs.getDouble('doubleValue');
-//   return doubleValue;
-// }
+getDoubleValuesSF(String? tag) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  double stringValue = prefs.getDouble(tag!) ?? 0.0;
+  return stringValue;
+}

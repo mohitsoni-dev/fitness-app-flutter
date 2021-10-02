@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 
 Widget threeDotWidget() {
-  return  InkWell(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.more_horiz,
-                color: Colors.black,
-                size: 30,
-              ),
-            ),
-            onTap: () {}, //TODO
-          );
-
+  return InkWell(
+    child: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Icon(
+        Icons.more_horiz,
+        color: Colors.black,
+        size: 30,
+      ),
+    ),
+    onTap: () {}, //TODO
+  );
 }
 
 Widget profilePicWidget() {
@@ -31,14 +30,12 @@ Widget profilePicWidget() {
 }
 
 Widget userNameTextWidget(String username) {
-
   return Padding(
     padding: const EdgeInsets.only(top: 8.0, left: 8, right: 8),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-
           "$username",
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         )
@@ -76,7 +73,8 @@ Widget midViewUnitsTextWidget(String unit) {
   );
 }
 
-Widget midview(BuildContext context,String userWeight,String bmi,String userHeight) {
+Widget midview(
+    BuildContext context, String userWeight, String bmi, String userHeight) {
   return Padding(
     padding: const EdgeInsets.only(top: 25.0),
     child: Container(
@@ -117,19 +115,13 @@ Widget midview(BuildContext context,String userWeight,String bmi,String userHeig
             children: [
               Padding(
                   padding: const EdgeInsets.only(left: 10.0, top: 4),
-                  child: midViewUnitsTextWidget(
-                      "$userWeight kg")
-                  ),
+                  child: midViewUnitsTextWidget("$userWeight kg")),
               Padding(
                   padding: const EdgeInsets.only(top: 4.0),
-                  child: midViewUnitsTextWidget(
-                      "$bmi kg/m2 ")
-              ),
+                  child: midViewUnitsTextWidget("$bmi kg/m2 ")),
               Padding(
                   padding: const EdgeInsets.only(right: 2.0, top: 4),
-                  child: midViewUnitsTextWidget(
-                      "$userHeight m")
-                  ),
+                  child: midViewUnitsTextWidget("$userHeight m")),
             ],
           ),
         ],
@@ -168,7 +160,6 @@ Widget weeklyProgressBarWidget() {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-
         progressBarWidget(60),
         progressBarWidget(10),
         progressBarWidget(20),
@@ -231,7 +222,7 @@ Widget weekdaysTextwidget() {
   );
 }
 
-Widget recentExerciseViewWidget(BuildContext context){
+Widget recentExerciseViewWidget(BuildContext context) {
   return Container(
     height: 600, //color: Colors.black26,
     width: MediaQuery.of(context).size.width,
@@ -244,8 +235,8 @@ Widget recentExerciseViewWidget(BuildContext context){
         //most recent exercise
         recentExerciseCardWidget(context, "Chest ",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOte6wyEPZvnbwbrJSEpc_AnSE7Ud9IizL8g&usqp=CAU"),
-        recentExerciseCardWidget(context, "Shoulder",
-            "https://static.toiimg.com/photo/81355442.cms")
+        recentExerciseCardWidget(
+            context, "Shoulder", "https://static.toiimg.com/photo/81355442.cms")
       ],
     ),
   );
@@ -267,10 +258,10 @@ Widget recentExerciseCardWidget(
       ),
       child: Center(
           child: Text(
-            "$exerciseName ",
-            style: TextStyle(
-                fontSize: 30, color: Colors.white, fontWeight: FontWeight.w400),
-          )),
+        "$exerciseName ",
+        style: TextStyle(
+            fontSize: 30, color: Colors.white, fontWeight: FontWeight.w400),
+      )),
     ),
   );
 }
