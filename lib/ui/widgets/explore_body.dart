@@ -1,7 +1,9 @@
 import 'package:fitness_app_flutter/core/models/article.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 Widget feedSection({required BuildContext context, Article? article}) {
+  String? url = article?.source;
   return InkWell(
     child: Padding(
       padding: const EdgeInsets.all(8.0),
@@ -56,6 +58,16 @@ Widget feedSection({required BuildContext context, Article? article}) {
         ],
       ),
     ),
-    onTap: () {},
+    onTap: () {
+      launchURL(url!);
+    },
   );
+}
+
+launchURL(String url) async {
+  if (url.length == 0) {
+    debugPrint("No url added");
+  } else {
+    await launch(url, forceWebView: true);
+  }
 }
