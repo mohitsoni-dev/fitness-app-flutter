@@ -50,7 +50,7 @@ class _SettingsState extends State<Settings> {
                   userNameTextWidget("$userName"),
                   //TODO values to be added from database
                   midview(context, userWeight.toString(),
-                      bmi.toString().substring(0, 4), userHeight.toString()),
+                      bmi.toString().substring(0, 3), userHeight.toString()),
                   DividerWidget(),
                   weeklyProgressTextWiget("Weekly Progress"),
                   //TODO progress value to be added from database

@@ -23,6 +23,7 @@ dependencies:
   json_annotation:
   json_serializable:
   http: ^0.13.3
+  url_launcher: ^6.0.10
 
 
 dev_dependencies:
