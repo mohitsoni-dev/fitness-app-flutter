@@ -35,7 +35,7 @@ class _SettingsState extends State<Settings> {
   }
 
   @override
-  bWidget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
