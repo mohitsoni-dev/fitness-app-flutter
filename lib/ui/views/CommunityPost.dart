@@ -1,4 +1,4 @@
-import 'package:fitness_app_flutter/ui/Widgets/CommunityPostWidgets.dart';
+import 'package:fitness_app_flutter/ui/widgets/CommunityPostWidgets.dart';
 import 'package:flutter/material.dart';
 
 
