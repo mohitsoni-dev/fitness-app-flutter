@@ -29,7 +29,7 @@ class _ExplorePageState extends State<ExplorePage> {
         backgroundColor: Colors.black,
       ),
       body: RefreshIndicator(
-        onRefresh: () => _bloc?.fetchMovieList(),
+        onRefresh: () => _bloc?.fetchArticleList(),
         child: StreamBuilder<ApiResponse<List<Article>>>(
           stream: _bloc?.movieListStream,
           builder: (context, snapshot) {

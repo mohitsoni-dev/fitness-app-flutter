@@ -18,11 +18,11 @@ class ExploreBloc {
   ExploreBloc() {
     _articleListController = StreamController<ApiResponse<List<Article>>>();
     _exploreService = ExploreService();
-    fetchMovieList();
+    fetchArticleList();
   }
 
-  fetchMovieList() async {
-    articleListSink?.add(ApiResponse.loading('Fetching Popular Movies'));
+  fetchArticleList() async {
+    articleListSink?.add(ApiResponse.loading('Fetching Popular Article'));
     try {
       List<Article> articles = await _exploreService!.fetchArticles();
       articleListSink?.add(ApiResponse.completed(articles));
