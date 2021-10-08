@@ -1,7 +1,8 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
-class ReadyToGoWidget extends StatelessWidget {
+class ReadyToGoWidget extends StatefulWidget {
   const ReadyToGoWidget({
     required this.onComplete,
     required this.controller,
@@ -9,6 +10,28 @@ class ReadyToGoWidget extends StatelessWidget {
 
   final CountDownController controller;
   final void Function()? onComplete;
+
+  @override
+  _ReadyToGoWidgetState createState() => _ReadyToGoWidgetState();
+}
+
+class _ReadyToGoWidgetState extends State<ReadyToGoWidget> {
+  FlutterTts flutterTts = FlutterTts();
+
+  Future _speak(String str) async {
+    await flutterTts.speak(str);
+  }
+
+  Future _stop() async {
+    await flutterTts.stop();
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _speak('READY TO GO! JUMPING JACKS! Sushant madarchod');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +51,7 @@ class ReadyToGoWidget extends StatelessWidget {
         CircularCountDownTimer(
           duration: 15,
           initialDuration: 0,
-          controller: controller,
+          controller: widget.controller,
           width: MediaQuery.of(context).size.width / 3.25,
           height: MediaQuery.of(context).size.height / 3.25,
           ringColor: Colors.grey[300]!,
@@ -51,7 +74,10 @@ class ReadyToGoWidget extends StatelessWidget {
           onStart: () {
             print('Countdown Started');
           },
-          onComplete: onComplete,
+          onComplete: () {
+            _stop();
+            widget.onComplete!();
+          },
         ),
       ],
     );
