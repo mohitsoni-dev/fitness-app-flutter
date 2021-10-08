@@ -1,4 +1,5 @@
 import 'package:fitness_app_flutter/core/models/question.dart';
+import 'package:fitness_app_flutter/ui/views/Question_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -68,7 +69,14 @@ class PostOfCommunity extends StatelessWidget {
                       ]),
                 ),
               ),
-              onTap: () {},
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => CommunityPostAnswers(
+                            question: question!.question,
+                            expertAnswer: question!.answer.expertAns,
+                            answers: question!.answer.answers,
+                          ))),
             ),
           ),
           SizedBox(
