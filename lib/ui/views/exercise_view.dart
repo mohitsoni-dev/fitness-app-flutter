@@ -14,20 +14,20 @@ class ExerciseView extends StatefulWidget {
 
 class _ExerciseViewState extends State<ExerciseView> {
   CountDownController _controller = CountDownController();
-  int _page = -1;
+  int _page = 0;
 
   Widget showWidget() {
-    if (_page < 0)
+    if (_page == 0)
       return ReadyToGoWidget(
         controller: _controller,
         onComplete: () => nextStep(),
       );
-    else if (_page >= chest_workouts.length)
+    else if (_page >= 2)
       return Center(child: Text('hi'));
     else
       return WorkoutWidget(
         onSkip: nextStep,
-        workout: Workout.fromJson(chest_workouts[_page]),
+        workouts: chest_workouts.map((e) => Workout.fromJson(e)).toList(),
       );
   }
 
