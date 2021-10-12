@@ -1,5 +1,5 @@
 import 'package:fitness_app_flutter/constants/shared_preferences.dart';
-import 'package:fitness_app_flutter/ui/widgets/goal_container.dart';
+import 'package:fitness_app_flutter/ui/widget/goal_container.dart';
 import 'package:flutter/material.dart';
 
 class UserDiet extends StatefulWidget {

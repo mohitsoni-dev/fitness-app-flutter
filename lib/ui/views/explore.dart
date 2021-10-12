@@ -1,7 +1,8 @@
 import 'package:fitness_app_flutter/core/api_response.dart';
 import 'package:fitness_app_flutter/core/blocs/explore_bloc.dart';
 import 'package:fitness_app_flutter/core/models/article.dart';
-import 'package:fitness_app_flutter/ui/widgets/explore_body.dart';
+import 'package:fitness_app_flutter/ui/widget/explore_body.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

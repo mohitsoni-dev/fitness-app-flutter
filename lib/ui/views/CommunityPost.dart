@@ -1,8 +1,11 @@
 import 'package:fitness_app_flutter/core/api_response.dart';
 import 'package:fitness_app_flutter/core/blocs/community_bloc.dart';
 import 'package:fitness_app_flutter/core/models/question.dart';
-import 'package:fitness_app_flutter/ui/widgets/CommunityPostWidgets.dart';
+import 'package:fitness_app_flutter/ui/widget/CommunityPostWidgets.dart';
+import 'package:fitness_app_flutter/ui/widget/ask_question_pop_up.dart';
+import 'package:fitness_app_flutter/ui/widget/pop_up_screen_helper.dart';
 import 'package:flutter/material.dart';
+
 
 class CommunityPost extends StatefulWidget {
   const CommunityPost({Key? key}) : super(key: key);
@@ -13,6 +16,7 @@ class CommunityPost extends StatefulWidget {
 
 class _CommunityPostState extends State<CommunityPost> {
   CommunityBloc? _bloc;
+
   @override
   void initState() {
     super.initState();
@@ -57,10 +61,19 @@ class _CommunityPostState extends State<CommunityPost> {
         ),
         floatingActionButton: Align(
           child: FloatingActionButton(
+            onPressed: () {
+              Navigator.of(context).push(HeroDialogRoute(builder: (context) {
+                return AskQuestion();
+              }));
+            },
             child: Icon(Icons.add),
-            onPressed: () {},
+
           ),
           alignment: Alignment(1, 0.75),
         ));
   }
 }
+
+
+// shape:
+// RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),

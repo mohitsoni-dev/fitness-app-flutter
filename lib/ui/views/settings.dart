@@ -1,5 +1,5 @@
 import 'package:fitness_app_flutter/constants/shared_preferences.dart';
-import 'package:fitness_app_flutter/ui/widgets/settings_widgets.dart';
+import 'package:fitness_app_flutter/ui/widget/settings_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
