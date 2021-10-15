@@ -24,6 +24,7 @@ dependencies:
   http: ^0.13.3
   url_launcher: ^6.0.10
   flutter_tts: ^3.2.2
+  fluttertoast: ^8.0.8
 
 
 dev_dependencies:

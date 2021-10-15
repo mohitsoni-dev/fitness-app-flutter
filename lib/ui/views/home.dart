@@ -1,7 +1,7 @@
 import 'package:appbar_animated/appbar_animated.dart';
 import 'package:fitness_app_flutter/constants/shared_preferences.dart';
-import 'package:fitness_app_flutter/ui/widgets/drawer_body.dart';
-import 'package:fitness_app_flutter/ui/widgets/workout_program_card.dart';
+import 'package:fitness_app_flutter/ui/widget/drawer_body.dart';
+import 'package:fitness_app_flutter/ui/widget/workout_program_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';

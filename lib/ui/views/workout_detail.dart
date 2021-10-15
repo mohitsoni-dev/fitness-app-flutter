@@ -1,6 +1,6 @@
 import 'package:appbar_animated/appbar_animated.dart';
 import 'package:fitness_app_flutter/ui/views/exercise_view.dart';
-import 'package:fitness_app_flutter/ui/widgets/workout_list_item.dart';
+import 'package:fitness_app_flutter/ui/widget/workout_list_item.dart';
 import 'package:flutter/material.dart';
 
 class WorkoutDetail extends StatefulWidget {
