@@ -11,7 +11,9 @@ class AskQuestion extends StatefulWidget {
 }
 
 class _AskQuestionState extends State<AskQuestion> {
-  List<bool> isSelected = [true, false];
+  bool isPrivate = true;
+  String title = '';
+  String desc = '';
 
   @override
   Widget build(BuildContext context) {
@@ -31,39 +33,36 @@ class _AskQuestionState extends State<AskQuestion> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    // const TextField(
-                    //   decoration: InputDecoration(
-                    //     hintText: 'New todo',
-                    //     border: InputBorder.none,
-                    //   ),
-                    //   cursorColor: Colors.white,
-                    // ),
                     Text(
                       "Ask your question",
                       style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
-                    const Divider(
-                      color: Colors.white,
-                      thickness: 0.2,
-                    ),
-                    const TextField(
+                    const Divider(color: Colors.white, thickness: 0.2),
+                    TextField(
+                      onChanged: (String text) {
+                        setState(() {
+                          title = text;
+                        });
+                      },
                       showCursor: true,
-
                       cursorColor: Colors.black26,
                       decoration: InputDecoration(
                         hintText: ' Question Title',
                         border: InputBorder.none,
                       ),
-
-                      //maxLines: 1,
+                      maxLines: 2,
                     ),
                     const Divider(
                       color: Colors.black26,
                       thickness: 0.2,
                     ),
-
-                    const TextField(
+                    TextField(
+                      onChanged: (String text) {
+                        setState(() {
+                          desc = text;
+                        });
+                      },
                       decoration: InputDecoration(
                         hintText: ' Description',
                         border: InputBorder.none,
@@ -79,11 +78,11 @@ class _AskQuestionState extends State<AskQuestion> {
                       endIndent: 30,
                       indent: 30,
                     ),
-
+                    SizedBox(height: 8.0),
                     Container(
                       color: Colors.white,
                       child: ToggleButtons(
-                        isSelected: isSelected,
+                        isSelected: [isPrivate, !isPrivate],
                         selectedColor: Colors.black87,
                         splashColor: Colors.green[200],
                         //selectedBorderColor: Colors.green,
@@ -107,17 +106,12 @@ class _AskQuestionState extends State<AskQuestion> {
                             ),
                           )
                         ],
-                        onPressed: (int SelectedIndex) {
+                        onPressed: (int selectedIndex) {
                           setState(() {
-                            for (int index = 0;
-                                index < isSelected.length;
-                                index++) {
-                              if (SelectedIndex == index) {
-                                isSelected[index] = true;
-                              } else {
-                                isSelected[index] = false;
-                              }
-                            }
+                            if (selectedIndex == 0)
+                              isPrivate = true;
+                            else
+                              isPrivate = false;
                           });
                         },
                       ),
@@ -125,21 +119,29 @@ class _AskQuestionState extends State<AskQuestion> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        "(*make post private or public)",
+                        "*select private to hide your identity",
                         style: TextStyle(fontWeight: FontWeight.w300),
                       ),
                     ),
                     SizedBox(
                       height: 15,
                     ),
-
                     ElevatedButton(
                       onPressed: () {
+                        if (title.isEmpty || desc.isEmpty) {
+                          Fluttertoast.showToast(
+                            msg:
+                                "Please enter title and description for your query.",
+                            gravity: ToastGravity.BOTTOM,
+                            toastLength: Toast.LENGTH_LONG,
+                          );
+                          return;
+                        }
                         Fluttertoast.showToast(
                           msg:
                               "When an expert answers your question it will appear here",
                           gravity: ToastGravity.BOTTOM,
-                          toastLength: Toast.LENGTH_SHORT,
+                          toastLength: Toast.LENGTH_LONG,
                         );
                         Navigator.pop(context);
                       },

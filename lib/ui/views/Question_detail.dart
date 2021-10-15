@@ -29,17 +29,9 @@ class CommunityPostAnswers extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
-            height: 10,
-          ),
-          Divider(
-            indent: 30,
-            endIndent: 30,
-            thickness: 1.5,
-          ),
-          SizedBox(
-            height: 20,
-          ),
+          SizedBox(height: 10),
+          Divider(indent: 30, endIndent: 30, thickness: 1.5),
+          SizedBox(height: 20),
           SingleChildScrollView(
             child: Column(children: <Widget>[
               Container(
@@ -65,17 +57,9 @@ class CommunityPostAnswers extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 5,
-              ),
-              Divider(
-                indent: 50,
-                endIndent: 50,
-                thickness: 1.5,
-              ),
-              SizedBox(
-                height: 5,
-              ),
+              SizedBox(height: 5),
+              Divider(indent: 50, endIndent: 50, thickness: 1.5),
+              SizedBox(height: 5),
               Container(
                   alignment: Alignment.topLeft,
                   child: Padding(
@@ -97,4 +81,3 @@ class CommunityPostAnswers extends StatelessWidget {
     );
   }
 }
-
