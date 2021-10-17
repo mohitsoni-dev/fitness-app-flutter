@@ -6,7 +6,6 @@ import 'package:fitness_app_flutter/ui/widget/ask_question_pop_up.dart';
 import 'package:fitness_app_flutter/ui/widget/pop_up_screen_helper.dart';
 import 'package:flutter/material.dart';
 
-
 class CommunityPost extends StatefulWidget {
   const CommunityPost({Key? key}) : super(key: key);
 
@@ -63,17 +62,12 @@ class _CommunityPostState extends State<CommunityPost> {
           child: FloatingActionButton(
             onPressed: () {
               Navigator.of(context).push(HeroDialogRoute(builder: (context) {
-                return AskQuestion();
+                return AskQuestion(onSubmit: _bloc?.postQuestion);
               }));
             },
             child: Icon(Icons.add),
-
           ),
           alignment: Alignment(1, 0.75),
         ));
   }
 }
-
-
-// shape:
-// RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),

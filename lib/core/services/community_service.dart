@@ -12,4 +12,9 @@ class CommunityService {
       questions.add(Question.fromJson(json));
     return questions;
   }
+
+  Future<dynamic> postQuestion({required Map<String, String> body}) async {
+    final response = await _helper.post(QUESTIONS_EP, body);
+    return response;
+  }
 }

@@ -4,7 +4,12 @@ import 'package:flutter/rendering.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class AskQuestion extends StatefulWidget {
-  const AskQuestion({Key? key}) : super(key: key);
+  const AskQuestion({Key? key, this.onSubmit}) : super(key: key);
+  final dynamic Function({
+    required String desc,
+    bool isPrivate,
+    required String title,
+  })? onSubmit;
 
   @override
   _AskQuestionState createState() => _AskQuestionState();
@@ -137,6 +142,8 @@ class _AskQuestionState extends State<AskQuestion> {
                           );
                           return;
                         }
+                        widget.onSubmit!(
+                            title: title, desc: desc, isPrivate: isPrivate);
                         Fluttertoast.showToast(
                           msg:
                               "When an expert answers your question it will appear here",
