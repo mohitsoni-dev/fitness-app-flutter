@@ -47,15 +47,14 @@ class _AskQuestionState extends State<AskQuestion> {
                       color: Colors.white,
                       thickness: 0.2,
                     ),
-                    const TextField(
+                     TextField(
                       showCursor: true,
-
                       cursorColor: Colors.black26,
                       decoration: InputDecoration(
                         hintText: ' Question Title',
                         border: InputBorder.none,
-                      ),
 
+                      ),
                       //maxLines: 1,
                     ),
                     const Divider(
@@ -63,7 +62,7 @@ class _AskQuestionState extends State<AskQuestion> {
                       thickness: 0.2,
                     ),
 
-                    const TextField(
+                     TextField(
                       decoration: InputDecoration(
                         hintText: ' Description',
                         border: InputBorder.none,
@@ -72,6 +71,7 @@ class _AskQuestionState extends State<AskQuestion> {
                       keyboardType: TextInputType.multiline,
                       showCursor: true,
                       cursorColor: Colors.black26,
+
                     ),
                     const Divider(
                       color: Colors.black26,
@@ -121,6 +121,7 @@ class _AskQuestionState extends State<AskQuestion> {
                           });
                         },
                       ),
+
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
