@@ -17,10 +17,21 @@ class WorkoutWidget extends StatefulWidget {
 
 class _WorkoutWidgetState extends State<WorkoutWidget> {
   late int _counter;
-  bool isPaused = false;
   late Timer _timer;
   int index = 0;
   FlutterTts flutterTts = FlutterTts();
+
+  void nextWorkout() {
+    _stop();
+    if (widget.workouts[index].isTimeBased) _timer.cancel();
+    setState(() {
+      index++;
+      if (index == widget.workouts.length) {
+        widget.onSkip();
+      }
+      if (widget.workouts[index].isTimeBased) _startTimer();
+    });
+  }
 
   void _startTimer() {
     _counter = widget.workouts[index].duration!.toInt();
@@ -30,25 +41,15 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
         setState(() {
           _counter--;
         });
-      } else {
-        _stop();
-        setState(() {
-          index++;
-          if (index == widget.workouts.length) {
-            _timer.cancel();
-            widget.onSkip();
-          }
-          _counter = widget.workouts[index].duration!.toInt();
-        });
-      }
+      } else
+        nextWorkout();
     });
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    _startTimer();
+    if (widget.workouts[index].isTimeBased) _startTimer();
   }
 
   Future _speak(int counter) async {
@@ -75,15 +76,15 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
         ),
         SizedBox(height: 48),
         Text(
-          '$_counter',
+          widget.workouts[index].isTimeBased
+              ? '$_counter'
+              : '${widget.workouts[index].reps}x',
           style: TextStyle(fontSize: 48),
         ),
         ElevatedButton.icon(
-          icon: LineIcon(isPaused ? LineIcons.play : LineIcons.pause),
-          onPressed: () {
-            _speak(_counter);
-          },
-          label: Text(isPaused ? 'Resume' : 'Pause'),
+          icon: LineIcon(LineIcons.play),
+          onPressed: () => nextWorkout(),
+          label: Text('Next'),
         ),
       ],
     );

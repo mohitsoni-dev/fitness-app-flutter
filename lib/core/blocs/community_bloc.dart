@@ -32,6 +32,21 @@ class CommunityBloc {
     }
   }
 
+  postQuestion({
+    required String title,
+    required String desc,
+    bool isPrivate = true,
+  }) async {
+    var response = await _communityService!.postQuestion(body: {
+      'question': title,
+      'desc': desc,
+      'isPrivate': isPrivate ? 'true' : 'false',
+      'author': 'ABC',
+      'topic': 'Health'
+    });
+    print(response);
+  }
+
   dispose() {
     _questionListController?.close();
   }

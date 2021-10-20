@@ -1,18 +1,38 @@
 const List<Map<String, dynamic>> chest_workouts = [
   {
-    'name': 'Jumping Jacks',
+    'name': 'Push Ups',
     'caterory': 'Strength',
     'muscleGroup': 'Chest',
+    'isTimeBased': false,
+    'duration': null,
+    'reps': 12,
+    'image': ''
+  },
+  {
+    'name': 'Rest',
+    'caterory': 'Misc',
+    'muscleGroup': 'None',
     'isTimeBased': true,
-    'duration': 30.0,
+    'duration': 30,
+    'reps': null,
     'image': ''
   },
   {
     'name': 'Push Ups',
     'caterory': 'Strength',
     'muscleGroup': 'Chest',
+    'isTimeBased': false,
+    'duration': null,
+    'reps': 10,
+    'image': ''
+  },
+  {
+    'name': 'Rest',
+    'caterory': 'Misc',
+    'muscleGroup': 'None',
     'isTimeBased': true,
-    'duration': 20.0,
+    'duration': 30,
+    'reps': null,
     'image': ''
   },
   {

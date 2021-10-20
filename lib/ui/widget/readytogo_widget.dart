@@ -30,7 +30,7 @@ class _ReadyToGoWidgetState extends State<ReadyToGoWidget> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _speak('READY TO GO! JUMPING JACKS! Sushant madarchod');
+    _speak('READY TO GO! JUMPING JACKS!');
   }
 
   @override
