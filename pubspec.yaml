@@ -25,6 +25,10 @@ dependencies:
   url_launcher: ^6.0.10
   flutter_tts: ^3.2.2
   fluttertoast: ^8.0.8
+  blur: ^3.0.0
+  audioplayers: ^0.20.1
+  assets_audio_player: ^3.0.3+6
+
 
 
 dev_dependencies:
@@ -34,3 +38,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/

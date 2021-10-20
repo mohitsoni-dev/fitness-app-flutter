@@ -6,9 +6,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 class AskQuestion extends StatefulWidget {
   const AskQuestion({Key? key, this.onSubmit}) : super(key: key);
   final dynamic Function({
-    required String desc,
-    bool isPrivate,
-    required String title,
+  required String desc,
+  bool isPrivate,
+  required String title,
   })? onSubmit;
 
   @override
@@ -31,7 +31,7 @@ class _AskQuestionState extends State<AskQuestion> {
             color: Colors.white,
             elevation: 2,
             shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -41,7 +41,7 @@ class _AskQuestionState extends State<AskQuestion> {
                     Text(
                       "Ask your question",
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                     const Divider(color: Colors.white, thickness: 0.2),
                     TextField(
@@ -136,7 +136,7 @@ class _AskQuestionState extends State<AskQuestion> {
                         if (title.isEmpty || desc.isEmpty) {
                           Fluttertoast.showToast(
                             msg:
-                                "Please enter title and description for your query.",
+                            "Please enter title and description for your query.",
                             gravity: ToastGravity.BOTTOM,
                             toastLength: Toast.LENGTH_LONG,
                           );
@@ -146,7 +146,7 @@ class _AskQuestionState extends State<AskQuestion> {
                             title: title, desc: desc, isPrivate: isPrivate);
                         Fluttertoast.showToast(
                           msg:
-                              "When an expert answers your question it will appear here",
+                          "When an expert answers your question it will appear here",
                           gravity: ToastGravity.BOTTOM,
                           toastLength: Toast.LENGTH_LONG,
                         );
