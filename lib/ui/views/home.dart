@@ -1,5 +1,6 @@
 import 'package:appbar_animated/appbar_animated.dart';
 import 'package:fitness_app_flutter/constants/shared_preferences.dart';
+import 'package:fitness_app_flutter/core/data/workouts_data.dart';
 import 'package:fitness_app_flutter/ui/widget/drawer_body.dart';
 import 'package:fitness_app_flutter/ui/widget/workout_program_card.dart';
 import 'package:flutter/cupertino.dart';
@@ -85,12 +86,12 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            listViewRow("Workout", LineIcons.clock,context,0),
-            listViewRow("Saved Workout", LineIcons.download,context,1),
-            listViewRow("Activity", LineIcons.running,context,2),
-            listViewRow("Sleep Asmr", LineIcons.peace,context,3),
-            listViewRow("Inbox", LineIcons.inbox,context,4),
-            listViewRow("Settings", Icons.settings,context,5),
+            listViewRow("Workout", LineIcons.clock, context, 0),
+            listViewRow("Saved Workout", LineIcons.download, context, 1),
+            listViewRow("Activity", LineIcons.running, context, 2),
+            listViewRow("Sleep Asmr", LineIcons.peace, context, 3),
+            listViewRow("Inbox", LineIcons.inbox, context, 4),
+            listViewRow("Settings", Icons.settings, context, 5),
           ],
         ),
       ),
@@ -117,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(height: 12.0),
                       Text(
-                        'Looks like it\'s a good dat to have a solid workout! Don\'t miss it!',
+                        'Looks like it\'s a good day to have a solid workout! Don\'t miss it!',
                         style: TextStyle(fontSize: 13),
                       ),
                       PaddedDivider(),
@@ -140,21 +141,25 @@ class _HomePageState extends State<HomePage> {
                               title: 'Chest Workout',
                               desc:
                                   'This workout program is design to build your chest muscles',
+                              workoutList: chest_workouts,
                             ),
                             WorkoutProgramCard(
                               title: 'Legs Workout',
                               desc:
                                   'This workout program is design to build your chest muscles',
+                              workoutList: chest_workouts,
                             ),
                             WorkoutProgramCard(
                               title: 'Arms Workout',
                               desc:
                                   'This workout program is design to build your chest muscles',
+                              workoutList: chest_workouts,
                             ),
                             WorkoutProgramCard(
                               title: 'Shoulder Workout',
                               desc:
                                   'This workout program is design to build your chest muscles',
+                              workoutList: chest_workouts,
                             ),
                           ],
                         ),

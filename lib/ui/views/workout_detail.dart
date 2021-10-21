@@ -1,11 +1,12 @@
-import 'package:appbar_animated/appbar_animated.dart';
+import 'dart:math';
+
 import 'package:fitness_app_flutter/ui/views/exercise_view.dart';
 import 'package:fitness_app_flutter/ui/widget/workout_list_item.dart';
 import 'package:flutter/material.dart';
 
 class WorkoutDetail extends StatefulWidget {
-  const WorkoutDetail({Key? key}) : super(key: key);
-
+  const WorkoutDetail({Key? key, required this.workoutList}) : super(key: key);
+  final List<Map<String, dynamic>> workoutList;
   @override
   _WorkoutDetailState createState() => _WorkoutDetailState();
 }
@@ -21,20 +22,21 @@ class _WorkoutDetailState extends State<WorkoutDetail> {
     begin: Colors.white,
     end: Colors.black,
   );
-  List<String> _workoutsList = [
-    'Jumping jacks',
-    'Push ups',
-    'Incline Push ups',
-    'ssdase Push ups',
-    'safasPush ups',
-    'asfPush ups'
-  ];
+  late List<Map<String, dynamic>> _workoutsList;
+
+  @override
+  void initState() {
+    _workoutsList = [...widget.workoutList];
+    super.initState();
+  }
 
   void reorderData(int oldindex, int newindex) {
     setState(() {
       if (newindex > oldindex) {
         newindex -= 1;
       }
+      // final items = _workoutsList.removeAt(oldindex);
+      // _workoutsList.insert(newindex, items);
       final items = _workoutsList.removeAt(oldindex);
       _workoutsList.insert(newindex, items);
     });
@@ -103,9 +105,7 @@ class _WorkoutDetailState extends State<WorkoutDetail> {
                               onPressed: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => ExerciseView(
-                                    workouts: _workoutsList,
-                                  ),
+                                  builder: (context) => ExerciseView(),
                                 ),
                               ),
                               backgroundColor: Colors.black,
@@ -117,10 +117,10 @@ class _WorkoutDetailState extends State<WorkoutDetail> {
                           shrinkWrap: true,
                           physics: NeverScrollableScrollPhysics(),
                           children: [
-                            for (String workout in _workoutsList)
+                            for (Map<String, dynamic> workout in _workoutsList)
                               WorkoutListItem(
-                                workout: workout,
-                                key: ValueKey(workout),
+                                workout: workout['name'],
+                                key: ValueKey(new Random().nextInt(1000)),
                               )
                           ],
                           onReorder: reorderData,

@@ -7,8 +7,7 @@ import 'package:fitness_app_flutter/ui/widget/workout_widget.dart';
 import 'package:flutter/material.dart';
 
 class ExerciseView extends StatefulWidget {
-  const ExerciseView({Key? key, required this.workouts}) : super(key: key);
-  final List<String> workouts;
+  const ExerciseView({Key? key}) : super(key: key);
   @override
   _ExerciseViewState createState() => _ExerciseViewState();
 }
