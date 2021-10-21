@@ -45,11 +45,11 @@ class _SleepAsmrState extends State<SleepAsmr> {
                           CustomMusicCard(
                               context,
                               "http://www.fao.org/fileadmin/templates/SOFO/2020/src/images/share.jpg",
-                              "Forest"),
+                              "Forest","forest.mp3"),
                           CustomMusicCard(
                               context,
                               "https://bsmedia.business-standard.com/_media/bs/img/article/2020-12/11/full/1607655600-5776.jpg",
-                              "Hill"),
+                              "Hill","hill.mp3"),
                         ],
                       ),
                       SizedBox(
@@ -62,11 +62,11 @@ class _SleepAsmrState extends State<SleepAsmr> {
                           CustomMusicCard(
                               context,
                               "https://www.skymetweather.com/content/wp-content/uploads/2020/03/rain-in-Northwest-India-social-1.jpg",
-                              "Rain"),
+                              "Rain","rain.mp3"),
                           CustomMusicCard(
                               context,
                               "https://www.worldatlas.com/r/w1200/upload/ce/1f/bf/shutterstock-646748830.jpg",
-                              "River"),
+                              "River","river.mp3"),
                         ],
                       ),
                       SizedBox(
@@ -79,11 +79,11 @@ class _SleepAsmrState extends State<SleepAsmr> {
                           CustomMusicCard(
                               context,
                               "https://incompliancemag.com/wp-content/uploads/2019/04/Snowfall.jpg",
-                              "Snow"),
+                              "Snow","snow.mp3"),
                           CustomMusicCard(
                               context,
                               "https://www.schaeffler.de/remotemedien/media/_shared_media_rwd/04_sectors_1/industry_1/windpower_1/47120_header-schaeffler-industry-solutions-wind-wind.jpg",
-                              "Wind"),
+                              "Wind","wind.mp3"),
                         ],
                       ),
                       SizedBox(
