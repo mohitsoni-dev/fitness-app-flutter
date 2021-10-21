@@ -25,6 +25,7 @@ dependencies:
   url_launcher: ^6.0.10
   flutter_tts: ^3.2.2
   fluttertoast: ^8.0.8
+  confetti: ^0.6.0
 
 
 dev_dependencies:

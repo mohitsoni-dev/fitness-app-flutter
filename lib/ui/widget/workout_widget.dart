@@ -29,7 +29,8 @@ class _WorkoutWidgetState extends State<WorkoutWidget> {
       if (index == widget.workouts.length) {
         widget.onSkip();
       }
-      if (widget.workouts[index].isTimeBased) _startTimer();
+      if (index < widget.workouts.length && widget.workouts[index].isTimeBased)
+        _startTimer();
     });
   }
 
