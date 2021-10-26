@@ -5,6 +5,7 @@ import 'package:fitness_app_flutter/ui/widget/drawer_body.dart';
 import 'package:fitness_app_flutter/ui/widget/workout_program_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:line_icons/line_icons.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,11 +17,85 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String username = '';
+  String userLastSeen = '';
+  double streak = 0;
 
   Future<bool> getDataFromCache() async {
     username = await getStringValuesSF(USER_NAME);
+    userLastSeen = await getStringValuesSF(USER_LAST_DATE);
+    streak = await getDoubleValuesSF(USER_STREAK);
+
     print(username);
     return true;
+  }
+
+  addDataToCache() async {
+    addStringToSF(tag: USER_LAST_DATE, string: userLastSeen);
+    addDoubleToSF(tag: USER_STREAK, value: streak);
+  }
+
+  int toInt(String s) {
+    int number = 0;
+    try {
+      number = int.parse(s);
+    } on FormatException {
+      print('Format error!');
+    }
+
+    return number;
+  }
+
+  bool isLeapYear(var year) {
+    if (year % 400 == 0) return true;
+    if (year % 100 == 0) return false;
+    if (year % 4 == 0) return true;
+    return false;
+  }
+
+  var now = DateTime.now();
+  var yearFormat = DateFormat('yyyy');
+  var monthFormat = DateFormat('MM');
+  var dayFormat = DateFormat('dd');
+
+  DayOfTheYear(var month, var day, var year) {
+    // like 1 jan=1,10 jan =10,10 oct =294 etc
+    int monthIndex = month - 1;
+    var dayCount = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+    var dayOfYear = dayCount[monthIndex] + day;
+    if (monthIndex > 1 && isLeapYear(year)) dayOfYear++;
+    return dayOfYear;
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getDataFromCache();
+    var currentYear = yearFormat.format(now);
+    var currentMonth = monthFormat.format(now);
+    var currentDay = dayFormat.format(now);
+
+    var noOfDaysInYear = isLeapYear(toInt(currentYear)) ? 366 : 365;
+    var dayNo = DayOfTheYear(
+        toInt(currentMonth), toInt(currentDay), toInt(currentYear));
+
+    if (userLastSeen == '') {
+      streak = 1;
+      userLastSeen = dayNo.toString();
+
+      //userLastSeen day no for today
+    } else {
+      if (toInt(userLastSeen) % noOfDaysInYear - dayNo == 1) {
+        streak++;
+        userLastSeen = dayNo.toString();
+      } else if (toInt(userLastSeen) % noOfDaysInYear - dayNo > 1) {
+        streak = 0;
+        userLastSeen = dayNo.toString();
+      } else if (toInt(userLastSeen) % noOfDaysInYear - dayNo == 0) {}
+    }
+
+    addDataToCache();
+    debugPrint("$streak");
   }
 
   final ColorTween background = ColorTween(
