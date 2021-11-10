@@ -1,5 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
+const String USER_ID = 'user_id';
 const String USER_GOAL = 'user_goal';
 const String USER_DIET = 'user_diet';
 const String USER_NAME = 'user_name';
@@ -30,7 +31,7 @@ addIntToSF({String? tag, int? value}) async {
   prefs.setInt(tag!, value!);
 }
 
-getStringValuesSF(String? tag) async {
+Future<String> getStringValuesSF(String? tag) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   String stringValue = prefs.getString(tag!) ?? '';
   return stringValue;
@@ -41,6 +42,7 @@ getBoolValuesSF(String? tag) async {
   bool boolValue = prefs.getBool(tag!) ?? false;
   return boolValue;
 }
+
 // getIntValuesSF() async {
 //   SharedPreferences prefs = await SharedPreferences.getInstance();
 //   //Return int

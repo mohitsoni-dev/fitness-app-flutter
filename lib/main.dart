@@ -1,5 +1,6 @@
 import 'package:fitness_app_flutter/constants/shared_preferences.dart';
 import 'package:fitness_app_flutter/ui/views/dashboard.dart';
+import 'package:fitness_app_flutter/ui/views/register_screen.dart';
 import 'package:fitness_app_flutter/ui/views/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -27,8 +28,10 @@ class Redirector extends StatefulWidget {
 
 class _RedirectorState extends State<Redirector> {
   bool _seen = false;
+  bool _isLoggedIn = false;
   Future<bool> checkIfSeen() async {
     _seen = await getBoolValuesSF(IS_USER_LOGGED);
+    _isLoggedIn = (await getStringValuesSF(USER_ID)).isNotEmpty;
     if (!_seen) {
       await addBoolToSF(tag: IS_USER_LOGGED, value: true);
     }
@@ -41,7 +44,11 @@ class _RedirectorState extends State<Redirector> {
       future: checkIfSeen(),
       builder: (BuildContext ctxt, AsyncSnapshot snapshot) {
         if (snapshot.hasData)
-          return _seen ? DashBoard() : WelcomeScreen();
+          return !_seen
+              ? WelcomeScreen()
+              : _isLoggedIn
+                  ? DashBoard()
+                  : RegisterScreen();
         else
           return Center(child: CircularProgressIndicator());
       },
