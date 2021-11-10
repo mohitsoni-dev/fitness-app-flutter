@@ -81,18 +81,14 @@ class _HomePageState extends State<HomePage> {
 
     if (userLastSeen == '') {
       streak = 1;
-      userLastSeen = dayNo.toString();
-
-      //userLastSeen day no for today
     } else {
       if (toInt(userLastSeen) % noOfDaysInYear - dayNo == 1) {
         streak++;
-        userLastSeen = dayNo.toString();
       } else if (toInt(userLastSeen) % noOfDaysInYear - dayNo > 1) {
         streak = 0;
-        userLastSeen = dayNo.toString();
-      } else if (toInt(userLastSeen) % noOfDaysInYear - dayNo == 0) {}
+      }
     }
+    userLastSeen = dayNo.toString();
 
     addDataToCache();
     debugPrint("$streak");
@@ -191,6 +187,7 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 22.0),
                       ),
+                      Text('Your streak: $streak'),
                       SizedBox(height: 12.0),
                       Text(
                         'Looks like it\'s a good day to have a solid workout! Don\'t miss it!',
