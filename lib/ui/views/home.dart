@@ -159,7 +159,7 @@ class _HomePageState extends State<HomePage> {
             ),
             listViewRow("Workout", LineIcons.clock, context, 0),
             listViewRow("Saved Workout", LineIcons.download, context, 1),
-            listViewRow("Activity", LineIcons.running, context, 2),
+            listViewRow("Step Counter", LineIcons.walking, context, 2),
             listViewRow("Sleep Asmr", LineIcons.peace, context, 3),
             listViewRow("Inbox", LineIcons.inbox, context, 4),
             listViewRow("Settings", Icons.settings, context, 5),
@@ -218,19 +218,19 @@ class _HomePageState extends State<HomePage> {
                             WorkoutProgramCard(
                               title: 'Legs Workout',
                               desc:
-                                  'This workout program is design to build your chest muscles',
+                                  'This workout program is design to build your legs muscles',
                               workoutList: chest_workouts,
                             ),
                             WorkoutProgramCard(
                               title: 'Arms Workout',
                               desc:
-                                  'This workout program is design to build your chest muscles',
+                                  'This workout program is design to build your arms muscles',
                               workoutList: chest_workouts,
                             ),
                             WorkoutProgramCard(
                               title: 'Shoulder Workout',
                               desc:
-                                  'This workout program is design to build your chest muscles',
+                                  'This workout program is design to build your shoulder muscles',
                               workoutList: chest_workouts,
                             ),
                           ],

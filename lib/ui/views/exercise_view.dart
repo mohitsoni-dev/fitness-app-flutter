@@ -1,5 +1,4 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
-import 'package:fitness_app_flutter/core/data/workouts_data.dart';
 import 'package:fitness_app_flutter/core/models/workout.dart';
 import 'package:fitness_app_flutter/ui/views/workout_complete_screen.dart';
 import 'package:fitness_app_flutter/ui/widget/readytogo_widget.dart';
@@ -7,7 +6,8 @@ import 'package:fitness_app_flutter/ui/widget/workout_widget.dart';
 import 'package:flutter/material.dart';
 
 class ExerciseView extends StatefulWidget {
-  const ExerciseView({Key? key}) : super(key: key);
+  const ExerciseView({Key? key, required this.workoutList}) : super(key: key);
+  final List<Map<String, dynamic>> workoutList;
   @override
   _ExerciseViewState createState() => _ExerciseViewState();
 }
@@ -27,7 +27,7 @@ class _ExerciseViewState extends State<ExerciseView> {
     else
       return WorkoutWidget(
         onSkip: nextStep,
-        workouts: chest_workouts.map((e) => Workout.fromJson(e)).toList(),
+        workouts: widget.workoutList.map((e) => Workout.fromJson(e)).toList(),
       );
   }
 

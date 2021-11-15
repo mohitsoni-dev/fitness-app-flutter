@@ -105,7 +105,7 @@ class _WorkoutDetailState extends State<WorkoutDetail> {
                               onPressed: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => ExerciseView(),
+                                  builder: (context) => ExerciseView(workoutList: _workoutsList),
                                 ),
                               ),
                               backgroundColor: Colors.black,

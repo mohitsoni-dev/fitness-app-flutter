@@ -1,3 +1,4 @@
+import 'package:fitness_app_flutter/ui/views/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness_app_flutter/ui/widget/register_screen_widget.dart';
 import 'package:fitness_app_flutter/ui/widget/header.dart';
@@ -14,8 +15,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-        body: Container(
-       // width: double.infinity,
+      body: Container(
+        // width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(begin: Alignment.topCenter, colors: [
             Color.fromARGB(255, 0, 188, 212),
@@ -25,8 +26,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ),
         child: Column(
           children: [
-            SizedBox(height: 80,),
-            Header(),
+            SizedBox(
+              height: 80,
+            ),
+            Header(label: 'Register'),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
@@ -34,11 +37,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(60),
                     topLeft: Radius.circular(60),
-                  )
+                  ),
                 ),
-                child: InputWrapper(),
+                child: InputWrapper(
+                    onSwitch: () => Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => LoginScreen())),
+                    onSubmit: () {},
+                    label2: 'Already have an account?'),
               ),
-
             )
           ],
         ),

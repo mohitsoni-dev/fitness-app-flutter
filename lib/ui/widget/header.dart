@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
-  const Header({Key? key}) : super(key: key);
-
+  const Header({Key? key, this.label}) : super(key: key);
+  final String? label;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -12,7 +12,7 @@ class Header extends StatelessWidget {
         children: [
           Center(
             child: Text(
-              "Login",
+              label!,
               style: TextStyle(fontSize: 40, color: Colors.white),
             ),
           ),
@@ -21,7 +21,7 @@ class Header extends StatelessWidget {
           ),
           Center(
             child: Text(
-              "Welcome to fitness app",
+              "Welcome to Flex App",
               style: TextStyle(fontSize: 18, color: Colors.white),
             ),
           ),
