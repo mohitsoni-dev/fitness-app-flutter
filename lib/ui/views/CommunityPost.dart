@@ -25,6 +25,7 @@ class _CommunityPostState extends State<CommunityPost> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+            resizeToAvoidBottomInset: false,
         body: Column(
           children: [
             textFieldView(context), //todo search bar algorithm to made
