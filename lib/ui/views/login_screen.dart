@@ -42,6 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       topLeft: Radius.circular(60),
                     )),
                 child: InputWrapper(
+                    isRegister: false,
                     onSwitch: () => Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
@@ -49,7 +50,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                     onSubmit: (
                         {required String email,
-                        required String password}) async {
+                        required String password,
+                        String? confirmPassword}) async {
                       bool success = await new AuthService()
                           .login(body: {'email': email, 'password': password});
                       if (success) {
