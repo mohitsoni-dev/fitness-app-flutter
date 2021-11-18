@@ -10,11 +10,14 @@ Widget textFieldView(BuildContext context) {
       child: TextField(
         decoration: InputDecoration(
             hintText: "Search Post",
-            prefixIcon: Icon(Icons.search),
+            filled: true,
             fillColor: Colors.black,
+            prefixIcon: Icon(Icons.search),
             focusColor: Colors.black,
             hoverColor: Colors.black,
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
             contentPadding: EdgeInsets.all(8)),
         onSubmitted: (value) {}, //TODO
       ),
