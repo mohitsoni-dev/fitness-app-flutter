@@ -7,6 +7,18 @@ class AuthService {
   Future<dynamic> login({required Map<String, String> body}) async {
     final response = await _helper.post(LOGIN_EP, body);
     print(response);
+    return response;
+  }
+
+  Future<bool> register({required Map<String, String> body}) async {
+    final response = await _helper.post(SIGNUP_EP, body);
+    print(response);
     return response['success'] != null;
+  }
+
+  Future<dynamic> activate({required Map<String, String> body}) async {
+    final response = await _helper.patch(ACTIVATE_EP, body);
+    print(response);
+    return response;
   }
 }

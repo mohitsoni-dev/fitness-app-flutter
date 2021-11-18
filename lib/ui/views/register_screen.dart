@@ -1,7 +1,10 @@
+import 'package:fitness_app_flutter/core/services/auth_service.dart';
+import 'package:fitness_app_flutter/ui/views/email_opt_screen.dart';
 import 'package:fitness_app_flutter/ui/views/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness_app_flutter/ui/widget/register_screen_widget.dart';
 import 'package:fitness_app_flutter/ui/widget/header.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -40,9 +43,39 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ),
                 child: InputWrapper(
+                    isRegister: true,
                     onSwitch: () => Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) => LoginScreen())),
-                    onSubmit: () {},
+                    onSubmit: (
+                        {required String email,
+                        required String password,
+                        String? confirmPassword}) async {
+                      String msg = '';
+                      if (confirmPassword == null) {
+                        msg = 'Please fill all the fields';
+                      } else if (password != confirmPassword) {
+                        msg = 'Passwords do not match';
+                      } else {
+                        bool success = await new AuthService().register(
+                          body: {
+                            'email': email,
+                            'password': password,
+                            'confirmPassword': confirmPassword,
+                          },
+                        );
+                        if (success) {
+                          msg = 'Registration succesful';
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    EmailOTPScreen(email: email),
+                              ));
+                        } else
+                          msg = 'Registration failed';
+                      }
+                      Fluttertoast.showToast(msg: msg);
+                    },
                     label2: 'Already have an account?'),
               ),
             )

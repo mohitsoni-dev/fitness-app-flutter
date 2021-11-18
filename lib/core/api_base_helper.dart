@@ -44,6 +44,22 @@ class ApiBaseHelper {
     return responseJson;
   }
 
+  Future<dynamic> patch(String url, dynamic body) async {
+    var responseJson;
+    try {
+      final response = await http.patch(
+        Uri.parse(BASE_URL + url),
+        body: json.encode(body),
+        headers: {"Content-Type": "application/json"},
+      );
+      responseJson = _returnResponse(response);
+    } on SocketException {
+      throw FetchDataException('No Internet connection');
+    }
+
+    return responseJson;
+  }
+
   Future<dynamic> delete(String url) async {
     var apiResponse;
     try {
@@ -60,7 +76,6 @@ class ApiBaseHelper {
     switch (response.statusCode) {
       case 200:
         var responseJson = json.decode(response.body.toString());
-        print(responseJson);
         return responseJson;
       case 400:
         throw BadRequestException(response.body.toString());

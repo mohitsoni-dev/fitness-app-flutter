@@ -6,6 +6,7 @@ class InputWrapper extends StatefulWidget {
     Key? key,
     required this.onSwitch,
     required this.onSubmit,
+    required this.isRegister,
     this.label1,
     this.label2,
   }) : super(key: key);
@@ -13,6 +14,7 @@ class InputWrapper extends StatefulWidget {
   final Function onSubmit;
   final String? label1;
   final String? label2;
+  final bool isRegister;
 
   @override
   _InputWrapperState createState() => _InputWrapperState();
@@ -21,6 +23,7 @@ class InputWrapper extends StatefulWidget {
 class _InputWrapperState extends State<InputWrapper> {
   String email = '';
   String password = '';
+  String? confirmPassword;
   bool isEmailValid = true;
 
   void checkIfEmailIsValid() {
@@ -42,6 +45,7 @@ class _InputWrapperState extends State<InputWrapper> {
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(10)),
             child: InputField(
+              isRegister: widget.isRegister,
               isEmailValid: isEmailValid,
               onEmailChanged: (String e) {
                 setState(() {
@@ -52,6 +56,11 @@ class _InputWrapperState extends State<InputWrapper> {
               onPasswordChanged: (String p) {
                 setState(() {
                   password = p;
+                });
+              },
+              onConfirmPasswordChanged: (String cp) {
+                setState(() {
+                  confirmPassword = cp;
                 });
               },
             ),
@@ -88,7 +97,11 @@ class _InputWrapperState extends State<InputWrapper> {
           InkWell(
             child: Button(),
             onTap: () {
-              widget.onSubmit(email: email, password: password);
+              widget.onSubmit(
+                email: email,
+                password: password,
+                confirmPassword: confirmPassword,
+              );
             },
           ),
         ],
@@ -102,12 +115,16 @@ class InputField extends StatelessWidget {
     Key? key,
     required this.onEmailChanged,
     required this.onPasswordChanged,
+    required this.isRegister,
     required this.isEmailValid,
+    this.onConfirmPasswordChanged,
   }) : super(key: key);
 
   final Function onEmailChanged;
   final bool isEmailValid;
+  final bool isRegister;
   final Function onPasswordChanged;
+  final Function? onConfirmPasswordChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -149,6 +166,25 @@ class InputField extends StatelessWidget {
               ),
             ),
           ),
+          isRegister
+              ? Container(
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      border: Border(bottom: BorderSide(color: Colors.grey))),
+                  child: TextField(
+                    onChanged: (String text) {
+                      if (onConfirmPasswordChanged == null) return;
+                      onConfirmPasswordChanged!(text);
+                    },
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      hintText: "Confirm password",
+                      hintStyle: TextStyle(color: Colors.grey),
+                      border: InputBorder.none,
+                    ),
+                  ),
+                )
+              : Container(),
         ],
       ),
     );
