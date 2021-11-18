@@ -11,12 +11,13 @@ Widget textFieldView(BuildContext context) {
         decoration: InputDecoration(
             hintText: "Search Post",
             filled: true,
-            fillColor: Colors.black,
+            fillColor: Colors.grey[200],
             prefixIcon: Icon(Icons.search),
             focusColor: Colors.black,
             hoverColor: Colors.black,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide.none
             ),
             contentPadding: EdgeInsets.all(8)),
         onSubmitted: (value) {}, //TODO
@@ -25,15 +26,20 @@ Widget textFieldView(BuildContext context) {
   );
 }
 
-class PostOfCommunity extends StatelessWidget {
+class PostOfCommunity extends StatefulWidget {
   const PostOfCommunity({Key? key, this.question}) : super(key: key);
-
   final Question? question;
 
   @override
+  _PostOfCommunityState createState() => _PostOfCommunityState();
+}
+
+class _PostOfCommunityState extends State<PostOfCommunity> {
+  int _upVote = 0;
+  int _downVote = 0;
+  @override
   Widget build(BuildContext context) {
-    int _upVote = 0;
-    int _downVote = 0;
+
     return Container(
       width: MediaQuery.of(context).size.width,
       child: Column(
@@ -47,7 +53,7 @@ class PostOfCommunity extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 18.0, left: 12, right: 12),
             child: Text(
-              question!.question,
+              widget.question!.question,
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
           ),
@@ -58,7 +64,7 @@ class PostOfCommunity extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: RichText(
                   text: TextSpan(
-                      text: question!.desc,
+                      text: widget.question!.desc,
                       style: TextStyle(
                         fontSize: 18,
                         letterSpacing: 1.0,
@@ -76,10 +82,10 @@ class PostOfCommunity extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => CommunityPostAnswers(
-                            question: question!.question,
-                            expertAnswer: question!.answer.expertAns,
-                            answers: question!.answer.answers,
-                          ))),
+                        question: widget.question!.question,
+                        expertAnswer: widget.question!.answer.expertAns,
+                        answers: widget.question!.answer.answers,
+                      ))),
             ),
           ),
           SizedBox(
@@ -93,10 +99,16 @@ class PostOfCommunity extends StatelessWidget {
                   children: [
                     InkWell(
                       child: Icon(
-                        LineIcons.angleDoubleUp,
-                        size: 20,
+                        LineIcons.thumbsUp,
+                        size: 30,
                       ),
-                      onTap: () {},
+                      onTap: ()  {
+                      setState(() {
+                      _upVote++;
+                      });
+                    }
+
+
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -113,10 +125,17 @@ class PostOfCommunity extends StatelessWidget {
                   children: [
                     InkWell(
                       child: Icon(
-                        LineIcons.angleDoubleDown,
-                        size: 20,
+                        LineIcons.thumbsDown,
+                        size: 30,
                       ),
-                      onTap: () {},
+                      onTap: (){
+                        setState(() {
+
+                            _downVote++;
+
+                        });
+
+                      },
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -140,3 +159,4 @@ class PostOfCommunity extends StatelessWidget {
     );
   }
 }
+
