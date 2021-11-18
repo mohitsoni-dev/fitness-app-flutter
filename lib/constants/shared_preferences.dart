@@ -8,8 +8,9 @@ const String IS_USER_LOGGED = 'is_user_logged';
 const String USER_WEIGHT = 'user_weight';
 const String USER_HEIGHT = 'user_height';
 const String USER_AGE = 'user_age';
-const String USER_LAST_DATE='user_last_date';
-const String USER_STREAK='user_streak';
+const String USER_LAST_DATE = 'user_last_date';
+const String USER_STREAK = 'user_streak';
+const String USER_JSON = 'user_json';
 
 addStringToSF({String? tag, String? string}) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();

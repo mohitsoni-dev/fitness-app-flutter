@@ -31,7 +31,7 @@ class _RedirectorState extends State<Redirector> {
   bool _isLoggedIn = false;
   Future<bool> checkIfSeen() async {
     _seen = await getBoolValuesSF(IS_USER_LOGGED);
-    _isLoggedIn = (await getStringValuesSF(USER_ID)).isNotEmpty;
+    _isLoggedIn = (await getStringValuesSF(USER_JSON)).isNotEmpty;
     if (!_seen) {
       await addBoolToSF(tag: IS_USER_LOGGED, value: true);
     }

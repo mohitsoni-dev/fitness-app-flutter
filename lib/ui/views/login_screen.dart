@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:fitness_app_flutter/constants/shared_preferences.dart';
 import 'package:fitness_app_flutter/core/services/auth_service.dart';
 import 'package:fitness_app_flutter/ui/views/dashboard.dart';
 import 'package:fitness_app_flutter/ui/views/register_screen.dart';
@@ -52,15 +55,17 @@ class _LoginScreenState extends State<LoginScreen> {
                         {required String email,
                         required String password,
                         String? confirmPassword}) async {
-                      bool success = await new AuthService()
+                      dynamic response = await new AuthService()
                           .login(body: {'email': email, 'password': password});
-                      if (success) {
+                      if (!response['error']) {
+                        addStringToSF(
+                            tag: USER_JSON, string: json.encode(response['user']));
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(builder: (context) => DashBoard()),
                         );
                       } else {
-                        Fluttertoast.showToast(msg: 'Wrong email or password');
+                        Fluttertoast.showToast(msg: response['message']);
                       }
                     },
                     label1: 'Forgot Password',
