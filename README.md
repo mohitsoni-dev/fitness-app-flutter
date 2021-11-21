@@ -1,16 +1,23 @@
-# fitness_app_flutter
 
-A new Flutter project.
 
-## Getting Started
+# Flex - Fitness App
+<p align="center">
+    <a href="https://github.com/mohitsoni-dev/fitness-app-flutter/graphs/contributors" alt="Contributors">
+        <img src="https://img.shields.io/github/contributors/mohitsoni-dev/fitness-app-flutter" /></a>
+         <a href="https://github.com/mohitsoni-dev/fitness-app-flutter/blob/master/LICENSE" alt="LICENSE">
+        <img src="https://img.shields.io/apm/l/atomic-design-ui.svg?" /></a>
+         <a href="https://github.com/mohitsoni-dev/fitness-app-flutter/network/members" alt="Forks">
+        <img src="https://badgen.net/github/forks/mohitsoni-dev/fitness-app-flutter/" /></a>
+         <a href="https://github.com/mohitsoni-dev/fitness-app-flutter/stargazers" alt="Stars">
+        <img src="https://badgen.net/github/stars/mohitsoni-dev/fitness-app-flutter" /></a>
+         
+</p>
 
-This project is a starting point for a Flutter application.
+Flex is a simple workout and fitness app which provides users various workout programs without need of any equiment along with other features such as sleep ASMR, meditation etc.
 
-A few resources to get you started if this is your first Flutter project:
+## Tech Stack
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+**Client:** Flutter, Dart, Android/iOS
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**Server:** Node, Express
+
