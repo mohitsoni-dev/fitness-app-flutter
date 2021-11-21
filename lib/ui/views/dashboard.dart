@@ -62,9 +62,9 @@ class _DashBoardState extends State<DashBoard> {
             padding: EdgeInsets.symmetric(horizontal: 18, vertical: 14),
             duration: Duration(milliseconds: 500),
             tabs: [
-              GButton(icon: LineIcons.home, text: 'Home'),
-              GButton(icon: LineIcons.heart, text: 'Likes'),
-              GButton(icon: LineIcons.search, text: 'Search'),
+             GButton(icon: LineIcons.home, text: 'Home'),
+              GButton(icon: LineIcons.react, text: 'Explore'),
+              GButton(icon: LineIcons.search, text: 'Posts'),
               GButton(icon: LineIcons.cog, text: 'Settings'),
             ],
             selectedIndex: selectedIndex,
