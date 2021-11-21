@@ -17,66 +17,78 @@ class CommunityPostAnswers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 50.0, left: 10, right: 10),
-              child: Text(
-                "$question ",
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
-              ),
-            ),
+      body: SafeArea(
+        top: true,
+        child: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Color.fromARGB(100,194, 233, 251),Color.fromARGB(100, 161, 196, 253),]
+              )
           ),
-          SizedBox(height: 10),
-          Divider(indent: 30, endIndent: 30, thickness: 1.5),
-          SizedBox(height: 20),
-          SingleChildScrollView(
-            child: Column(children: <Widget>[
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
               Container(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 15.0, bottom: 10),
-                    child: Text(
-                      "Expert's view:",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-                    ),
-                  )),
-              Container(
-                alignment: Alignment.topLeft,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 15.0, bottom: 10),
+                  padding: const EdgeInsets.only(top: 40.0, left: 10, right: 10),
                   child: Text(
-                    "$expertAnswer",
-                    style: TextStyle(
-                        fontSize: 22,
-                        letterSpacing: 1.5,
-                        fontWeight: FontWeight.w600),
+                    "$question ",
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
                   ),
                 ),
               ),
-              SizedBox(height: 5),
-              Divider(indent: 50, endIndent: 50, thickness: 1.5),
-              SizedBox(height: 5),
-              Container(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 15.0, bottom: 10),
-                    child: Text(
-                      "Other Answers:",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+              SizedBox(height: 10),
+              Divider(indent: 30, endIndent: 30, thickness: 1.5),
+              SizedBox(height: 20),
+              SingleChildScrollView(
+                child: Column(children: <Widget>[
+                  Container(
+                      alignment: Alignment.topLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 15.0, bottom: 10),
+                        child: Text(
+                          "Expert's view:",
+                          style:
+                              TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                        ),
+                      )),
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 15.0, bottom: 10),
+                      child: Text(
+                        "$expertAnswer",
+                        style: TextStyle(
+                            fontSize: 22,
+                            letterSpacing: 1.5,
+                            fontWeight: FontWeight.w600),
+                      ),
                     ),
-                  )),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[for (var i in answers) AnswersList(i)],
+                  ),
+                  SizedBox(height: 5),
+                  Divider(indent: 50, endIndent: 50, thickness: 1.5),
+                  SizedBox(height: 5),
+                  Container(
+                      alignment: Alignment.topLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 15.0, bottom: 10),
+                        child: Text(
+                          "Other Answers:",
+                          style:
+                              TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                        ),
+                      )),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[for (var i in answers) AnswersList(i)],
+                  )
+                ]),
               )
-            ]),
-          )
-        ],
+            ],
+          ),
+        ),
       ),
     );
   }

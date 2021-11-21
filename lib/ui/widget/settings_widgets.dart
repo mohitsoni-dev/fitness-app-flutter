@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
+import 'package:line_icons/line_icons.dart';
 
 Widget threeDotWidget() {
   return InkWell(
@@ -9,6 +10,7 @@ Widget threeDotWidget() {
         Icons.more_horiz,
         color: Colors.black,
         size: 30,
+
       ),
     ),
     onTap: () {}, //TODO
@@ -16,17 +18,29 @@ Widget threeDotWidget() {
 }
 
 Widget profilePicWidget() {
+
   return Padding(
     padding: const EdgeInsets.all(8.0),
-    child: Center(
-      child: CircleAvatar(
-        radius: 60,
-        backgroundColor: Colors.white,
-        backgroundImage: NetworkImage(
-            'https://picsum.photos/200'), //TODO Add the image of the user
-      ),
+    child: CircleAvatar(
+      radius: 65,
+      backgroundColor: Colors.grey[300],
+      child: Icon(
+        LineIcons.userNinja,
+        size: 55,
+      ), //TODO user profile to be selected
     ),
   );
+  // return Padding(
+  //   padding: const EdgeInsets.all(8.0),
+  //   child: Center(
+  //     child: CircleAvatar(
+  //       radius: 60,
+  //       backgroundColor: Colors.white,
+  //       backgroundImage: NetworkImage(
+  //           'https://picsum.photos/200'), //TODO Add the image of the user
+  //     ),
+  //   ),
+  // );
 }
 
 Widget userNameTextWidget(String username) {
