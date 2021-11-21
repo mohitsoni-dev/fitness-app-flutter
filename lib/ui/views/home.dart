@@ -159,7 +159,7 @@ class _HomePageState extends State<HomePage> {
             ),
             listViewRow("Workout", LineIcons.clock, context, 0),
             listViewRow("Saved Workout", LineIcons.download, context, 1),
-            listViewRow("Step Counter", LineIcons.walking, context, 2),
+            listViewRow("Streak-${streak}", LineIcons.fire, context, 2,),
             listViewRow("Sleep Asmr", LineIcons.peace, context, 3),
             listViewRow("Inbox", LineIcons.inbox, context, 4),
             listViewRow("Settings", Icons.settings, context, 5),
