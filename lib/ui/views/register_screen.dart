@@ -65,12 +65,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         );
                         if (success) {
                           msg = 'Registration succesful';
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    EmailOTPScreen(email: email),
-                              ));
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  EmailOTPScreen(email: email),
+                            ),
+                          );
                         } else
                           msg = 'Registration failed';
                       }

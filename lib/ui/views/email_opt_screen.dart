@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:fitness_app_flutter/constants/shared_preferences.dart';
 import 'package:fitness_app_flutter/core/services/auth_service.dart';
 import 'package:fitness_app_flutter/ui/views/dashboard.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +30,6 @@ class _EmailOTPScreenState extends State<EmailOTPScreen> {
                 setState(() {
                   otp = text;
                 });
-                print(otp + widget.email);
               },
             ),
             ElevatedButton(
@@ -36,8 +38,13 @@ class _EmailOTPScreenState extends State<EmailOTPScreen> {
                     .activate(body: {'email': widget.email, 'code': otp});
                 print(response['message']);
                 if (response['success'] != null) {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => DashBoard()));
+                  addStringToSF(
+                      tag: USER_JSON, string: json.encode(response['user']));
+                  // Navigator.pushReplacement(context,
+                  //     MaterialPageRoute(builder: (context) => DashBoard()));
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) => DashBoard()),
+                      (Route<dynamic> route) => false);
                 }
               },
               child: Text('Submit'),

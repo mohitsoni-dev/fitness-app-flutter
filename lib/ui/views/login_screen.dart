@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:fitness_app_flutter/constants/shared_preferences.dart';
 import 'package:fitness_app_flutter/core/services/auth_service.dart';
 import 'package:fitness_app_flutter/ui/views/dashboard.dart';
+import 'package:fitness_app_flutter/ui/views/email_opt_screen.dart';
 import 'package:fitness_app_flutter/ui/views/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness_app_flutter/ui/widget/register_screen_widget.dart';
@@ -59,10 +60,18 @@ class _LoginScreenState extends State<LoginScreen> {
                           .login(body: {'email': email, 'password': password});
                       if (!response['error']) {
                         addStringToSF(
-                            tag: USER_JSON, string: json.encode(response['user']));
+                            tag: USER_JSON,
+                            string: json.encode(response['user']));
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(builder: (context) => DashBoard()),
+                        );
+                      } else if (response['errorCode'] == 2) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => EmailOTPScreen(email: email),
+                          ),
                         );
                       } else {
                         Fluttertoast.showToast(msg: response['message']);
