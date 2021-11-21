@@ -1,4 +1,6 @@
 import 'package:fitness_app_flutter/constants/shared_preferences.dart';
+import 'package:fitness_app_flutter/ui/views/home.dart';
+import 'package:fitness_app_flutter/ui/views/sleep_asmr.dart';
 import 'package:fitness_app_flutter/ui/widget/settings_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +34,33 @@ class _SettingsState extends State<Settings> {
         shadowColor: Colors.transparent,
         foregroundColor: Colors.transparent,
         actions: [
-          threeDotWidget(),
+          PopupMenuButton<String>(
+            onSelected: (
+              String choice,
+            ) {
+              if (choice == 'About us') {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomePage()));
+              } else if (choice == 'Sign Out') {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SleepAsmr()));
+              }
+            },
+            icon: Icon(
+              Icons.more_horiz,
+              color: Colors.black,
+              size: 30,
+            ),
+            itemBuilder: (BuildContext context) {
+              return AboutConst.choice.map((String choices) {
+                return PopupMenuItem<String>(
+                  value: choices,
+                  child: Text(choices),
+                );
+              }).toList();
+            },
+          ),
+          //threeDotWidget(),
         ],
       ),
       body: FutureBuilder(
@@ -44,7 +72,6 @@ class _SettingsState extends State<Settings> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  //TODO profile pic to be added
                   profilePicWidget(),
 
                   userNameTextWidget("$userName"),
@@ -74,4 +101,10 @@ class _SettingsState extends State<Settings> {
       ),
     );
   }
+}
+
+class AboutConst {
+  static const String About = "About us";
+  static const String Signout = "Sign Out";
+  static const List<String> choice = <String>[About, Signout];
 }
