@@ -68,7 +68,7 @@ Widget midViewImages(String imageLink) {
           color: Colors.blueAccent,
           borderRadius: BorderRadius.circular(10),
           image: DecorationImage(
-              image: NetworkImage("$imageLink"), fit: BoxFit.cover)),
+              image: NetworkImage("$imageLink"), fit:BoxFit.fill)),
     ),
   );
 }
@@ -102,12 +102,12 @@ Widget midview(
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              midViewImages("https://picsum.photos/200"),
-              //TODO exercise image to be added
-              midViewImages("https://picsum.photos/200"),
-              //TODO exercise image to be added
-              midViewImages("https://picsum.photos/200"),
-              //TODO exercise image to be added
+              midViewImages(
+                  "https://health.clevelandclinic.org/wp-content/uploads/sites/3/2019/09/gainLoseWeight-1137100432-770x553.jpg"),
+              midViewImages(
+                  "https://res.cloudinary.com/grohealth/image/upload/v1583505191/DCUK/Content/iStock-528072248-1000x600.jpg"),
+              midViewImages(
+                  "https://healthbeat.spectrumhealth.org/wp-content/uploads/2016/01/Height-men.jpg"),
             ],
           ),
           Row(
