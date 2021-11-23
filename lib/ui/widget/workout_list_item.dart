@@ -7,7 +7,7 @@ class WorkoutListItem extends StatelessWidget {
     required this.workout,
   }) : super(key: key);
 
-  final String workout;
+  final Map<String, dynamic> workout;
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +17,15 @@ class WorkoutListItem extends StatelessWidget {
         title: Padding(
           padding: EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
-            workout.toUpperCase(),
+            workout['name'].toUpperCase(),
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
         subtitle: Padding(
           padding: EdgeInsets.symmetric(vertical: 8.0),
-          child: Text('00:20'),
+          child: workout['isTimeBased']
+              ? Text('${workout['duration']} sec')
+              : Text('${workout['reps']}x'),
         ),
         leading: Icon(LineIcons.chess, color: Colors.black),
       ),
