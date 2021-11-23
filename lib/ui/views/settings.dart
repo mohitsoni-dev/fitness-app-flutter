@@ -5,6 +5,8 @@ import 'package:fitness_app_flutter/ui/widget/settings_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:fitness_app_flutter/ui/views/about_us.dart';
+
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -42,7 +44,7 @@ class _SettingsState extends State<Settings> {
             onSelected: (String choice) {
               if (choice == 'About us') {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomePage()));
+                    MaterialPageRoute(builder: (context) => AboutPage()));
               } else if (choice == 'Sign Out') {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SleepAsmr()));
