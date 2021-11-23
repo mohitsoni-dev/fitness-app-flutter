@@ -35,13 +35,11 @@ class _SettingsState extends State<Settings> {
         foregroundColor: Colors.transparent,
         title: Text(
           'Settings',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
         actions: [
           PopupMenuButton<String>(
-            onSelected: (
-              String choice,
-            ) {
+            onSelected: (String choice) {
               if (choice == 'About us') {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => HomePage()));

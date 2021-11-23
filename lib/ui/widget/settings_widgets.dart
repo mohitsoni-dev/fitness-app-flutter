@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
+import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 
 Widget threeDotWidget() {
@@ -48,9 +49,11 @@ Widget userNameTextWidget(String username) {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "$username",
+          username,
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-        )
+        ),
+        SizedBox(width: 2.0),
+        LineIcon(LineIcons.edit)
       ],
     ),
   );

@@ -7,9 +7,11 @@ class WorkoutProgramCard extends StatelessWidget {
     required this.desc,
     required this.title,
     required this.workoutList,
+    required this.image,
   }) : super(key: key);
   final String title;
   final String desc;
+  final String image;
   final List<Map<String, dynamic>> workoutList;
 
   @override
@@ -20,8 +22,7 @@ class WorkoutProgramCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.network(
-              'https://images.unsplash.com/photo-1579047172169-515291e29467?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80'),
+          Hero(child: Image.network(image), tag: 'workout_image'),
           SizedBox(height: 8.0),
           Text(title, style: TextStyle(fontWeight: FontWeight.w700)),
           SizedBox(height: 8.0),
@@ -39,10 +40,15 @@ class WorkoutProgramCard extends StatelessWidget {
               SizedBox(width: 8.0),
               OutlinedButton(
                 onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => WorkoutDetail(
-                            workoutList: workoutList, title: title))),
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => WorkoutDetail(
+                      workoutList: workoutList,
+                      title: title,
+                      image: image,
+                    ),
+                  ),
+                ),
                 child: Text(
                   'START',
                   style: TextStyle(color: Colors.black, fontSize: 12),

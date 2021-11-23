@@ -5,11 +5,15 @@ import 'package:fitness_app_flutter/ui/widget/workout_list_item.dart';
 import 'package:flutter/material.dart';
 
 class WorkoutDetail extends StatefulWidget {
-  const WorkoutDetail(
-      {Key? key, required this.workoutList, required this.title})
-      : super(key: key);
+  const WorkoutDetail({
+    Key? key,
+    required this.workoutList,
+    required this.title,
+    required this.image,
+  }) : super(key: key);
   final List<Map<String, dynamic>> workoutList;
   final String title;
+  final String image;
   @override
   _WorkoutDetailState createState() => _WorkoutDetailState();
 }
@@ -57,8 +61,9 @@ class _WorkoutDetailState extends State<WorkoutDetail> {
                 children: [
                   Opacity(
                     opacity: 0.80,
-                    child: Image.network(
-                      'https://images.unsplash.com/photo-1579047172169-515291e29467?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80',
+                    child: Hero(
+                      child: Image.network(widget.image),
+                      tag: 'workout_image',
                     ),
                   ),
                   Padding(

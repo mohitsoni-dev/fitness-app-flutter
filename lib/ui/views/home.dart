@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:appbar_animated/appbar_animated.dart';
+import 'package:fitness_app_flutter/constants/constants.dart';
 import 'package:fitness_app_flutter/constants/shared_preferences.dart';
 import 'package:fitness_app_flutter/core/data/workouts_data.dart';
 import 'package:fitness_app_flutter/ui/widget/drawer_body.dart';
@@ -107,6 +110,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    List<String> quote = kQuotes[new Random().nextInt(6)];
     return Scaffold(
       key: scaffoldKey,
       drawer: Drawer(
@@ -218,29 +222,58 @@ class _HomePageState extends State<HomePage> {
                               desc:
                                   'This workout program is design to build your chest muscles',
                               workoutList: chest_workouts,
+                              image:
+                                  'https://images.unsplash.com/photo-1579047172169-515291e29467?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80',
                             ),
                             WorkoutProgramCard(
                               title: 'Legs Workout',
                               desc:
                                   'This workout program is design to build your legs muscles',
                               workoutList: chest_workouts,
+                              image:
+                                  'https://images.unsplash.com/photo-1434608519344-49d77a699e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80',
                             ),
                             WorkoutProgramCard(
                               title: 'Arms Workout',
                               desc:
                                   'This workout program is design to build your arms muscles',
                               workoutList: chest_workouts,
+                              image:
+                                  'https://images.unsplash.com/photo-1590507621108-433608c97823?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
                             ),
                             WorkoutProgramCard(
-                              title: 'Shoulder Workout',
+                              title: 'Back Workout',
                               desc:
-                                  'This workout program is design to build your shoulder muscles',
+                                  'This workout program is design to build your back muscles',
                               workoutList: chest_workouts,
+                              image:
+                                  'https://images.unsplash.com/photo-1600677396360-9c4e8e46e7d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80',
                             ),
                           ],
                         ),
                       ),
                       PaddedDivider(),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 4.0),
+                            Text(
+                              '\"${quote[0]}\"',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            SizedBox(height: 8.0),
+                            Text(
+                              '- ' + quote[1],
+                              style: TextStyle(fontSize: 14),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -294,47 +327,4 @@ class PaddedDivider extends StatelessWidget {
       ],
     );
   }
-}
-
-//TODO to be fixed as horizontal scrollabe view
-Widget Trainingprograme() {
-  return Column(
-    mainAxisAlignment: MainAxisAlignment.start,
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          height: 80,
-          width: 80,
-          decoration: BoxDecoration(
-              //shape: BoxShape.circle,
-              // border: Border.all(color: Colors.black87, width: 2),
-              borderRadius: BorderRadius.circular(20),
-              image: DecorationImage(
-                  image: NetworkImage("https://picsum.photos/200"),
-                  //TODO relevant images to be added images
-
-                  fit: BoxFit.cover)),
-        ),
-      ),
-      SizedBox(
-        height: 5,
-      ),
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: InkWell(
-          child: Text(
-            "Legs",
-            style: TextStyle(
-              fontSize: 20,
-            ),
-          ),
-
-          //TODO
-          onTap: () {},
-        ),
-      ),
-    ],
-  );
 }
