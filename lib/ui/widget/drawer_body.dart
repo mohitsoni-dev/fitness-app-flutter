@@ -1,3 +1,4 @@
+import 'package:fitness_app_flutter/ui/views/settings.dart';
 import 'package:fitness_app_flutter/ui/views/sleep_asmr.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,11 @@ Widget listViewRow(
       if (n == 3) {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => SleepAsmr()));
+      }
+      else if(n==5){
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Settings()));
+
       }
       // Update the state of the app.
       // ...
