@@ -69,17 +69,18 @@ class _InputWrapperState extends State<InputWrapper> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              widget.label1 != null
-                  ? InkWell(
-                      child: Text(
-                        widget.label1!,
-                        style: TextStyle(
-                          color: Colors.grey,
-                        ),
-                      ),
-                      onTap: () {},
-                    )
-                  : Container(),
+              // true
+              //     ? InkWell(
+              //         child: Text(
+              //           widget.label1!,
+              //           style: TextStyle(
+              //             color: Colors.grey,
+              //           ),
+              //         ),
+              //         onTap: () {},
+              //       )
+              //     :
+              Container(),
               InkWell(
                 child: Text(
                   widget.label2!,
