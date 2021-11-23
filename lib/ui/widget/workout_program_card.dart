@@ -2,12 +2,15 @@ import 'package:fitness_app_flutter/ui/views/workout_detail.dart';
 import 'package:flutter/material.dart';
 
 class WorkoutProgramCard extends StatelessWidget {
-  const WorkoutProgramCard({Key? key, required this.desc, required this.title, required this.workoutList,required this.imageLink,})
-      : super(key: key);
+  const WorkoutProgramCard({
+    Key? key,
+    required this.desc,
+    required this.title,
+    required this.workoutList,
+  }) : super(key: key);
   final String title;
   final String desc;
   final List<Map<String, dynamic>> workoutList;
-  final String imageLink;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,7 @@ class WorkoutProgramCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.network(
-              "$imageLink"),
+              'https://images.unsplash.com/photo-1579047172169-515291e29467?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80'),
           SizedBox(height: 8.0),
           Text(title, style: TextStyle(fontWeight: FontWeight.w700)),
           SizedBox(height: 8.0),
@@ -35,8 +38,11 @@ class WorkoutProgramCard extends StatelessWidget {
               ),
               SizedBox(width: 8.0),
               OutlinedButton(
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => WorkoutDetail(workoutList: workoutList))),
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => WorkoutDetail(
+                            workoutList: workoutList, title: title))),
                 child: Text(
                   'START',
                   style: TextStyle(color: Colors.black, fontSize: 12),
