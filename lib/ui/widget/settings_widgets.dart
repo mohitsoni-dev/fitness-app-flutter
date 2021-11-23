@@ -1,3 +1,5 @@
+import 'package:fitness_app_flutter/ui/widget/edit_profile_pop_up.dart';
+import 'package:fitness_app_flutter/ui/widget/pop_up_screen_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:line_icons/line_icon.dart';
@@ -42,18 +44,24 @@ Widget profilePicWidget() {
   // );
 }
 
-Widget userNameTextWidget(String username) {
+Widget userNameTextWidget(String username, BuildContext context) {
   return Padding(
     padding: const EdgeInsets.only(top: 8.0, left: 8, right: 8),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          username,
+          username.isEmpty ? 'Edit profile' : username,
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
         SizedBox(width: 2.0),
-        LineIcon(LineIcons.edit)
+        IconButton(
+            onPressed: () {
+              Navigator.of(context).push(HeroDialogRoute(builder: (context) {
+                return EditProfile();
+              }));
+            },
+            icon: LineIcon(LineIcons.edit))
       ],
     ),
   );
