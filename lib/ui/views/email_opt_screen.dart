@@ -14,7 +14,7 @@ class EmailOTPScreen extends StatefulWidget {
 }
 
 class _EmailOTPScreenState extends State<EmailOTPScreen> {
-  String otp = ''; 
+  String otp = '';
 
   @override
   Widget build(BuildContext context) {
