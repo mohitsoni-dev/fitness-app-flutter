@@ -229,7 +229,7 @@ class _HomePageState extends State<HomePage> {
                               title: 'Legs Workout',
                               desc:
                                   'This workout program is design to build your legs muscles',
-                              workoutList: chest_workouts,
+                              workoutList: legs_workouts,
                               image:
                                   'https://images.unsplash.com/photo-1434608519344-49d77a699e1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80',
                             ),
@@ -237,7 +237,7 @@ class _HomePageState extends State<HomePage> {
                               title: 'Arms Workout',
                               desc:
                                   'This workout program is design to build your arms muscles',
-                              workoutList: chest_workouts,
+                              workoutList: arms_workouts,
                               image:
                                   'https://images.unsplash.com/photo-1590507621108-433608c97823?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
                             ),
@@ -245,7 +245,7 @@ class _HomePageState extends State<HomePage> {
                               title: 'Back Workout',
                               desc:
                                   'This workout program is design to build your back muscles',
-                              workoutList: chest_workouts,
+                              workoutList: shoulder_workouts,
                               image:
                                   'https://images.unsplash.com/photo-1600677396360-9c4e8e46e7d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80',
                             ),

@@ -73,7 +73,6 @@ const List<Map<String, dynamic>> legs_workouts = [
     'reps': null,
     'image': ''
   },
-
   {
     'name': 'Side Lunge',
     'caterory': 'Strength',
@@ -83,7 +82,6 @@ const List<Map<String, dynamic>> legs_workouts = [
     'reps': 10,
     'image': ''
   },
-
   {
     'name': 'Calf Raise',
     'caterory': 'Strength',
@@ -104,7 +102,6 @@ const List<Map<String, dynamic>> arms_workouts = [
     'image': ''
   },
   {
-
     'name': 'Push Ups',
     'caterory': 'Strength',
     'muscleGroup': 'Arms',
@@ -122,7 +119,6 @@ const List<Map<String, dynamic>> arms_workouts = [
     'reps': null,
     'image': ''
   },
-
   {
     'name': 'Triceps dip ',
     'caterory': 'Strength',
@@ -132,7 +128,6 @@ const List<Map<String, dynamic>> arms_workouts = [
     'reps': 12,
     'image': ''
   },
-
   {
     'name': 'Bodyweight Dips',
     'caterory': 'Strength',
@@ -170,7 +165,6 @@ const List<Map<String, dynamic>> shoulder_workouts = [
     'reps': null,
     'image': ''
   },
-
   {
     'name': 'Plank',
     'caterory': 'Strength',
