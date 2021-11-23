@@ -5,8 +5,11 @@ import 'package:fitness_app_flutter/ui/widget/workout_list_item.dart';
 import 'package:flutter/material.dart';
 
 class WorkoutDetail extends StatefulWidget {
-  const WorkoutDetail({Key? key, required this.workoutList}) : super(key: key);
+  const WorkoutDetail(
+      {Key? key, required this.workoutList, required this.title})
+      : super(key: key);
   final List<Map<String, dynamic>> workoutList;
+  final String title;
   @override
   _WorkoutDetailState createState() => _WorkoutDetailState();
 }
@@ -70,7 +73,7 @@ class _WorkoutDetailState extends State<WorkoutDetail> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Chest workout',
+                                  widget.title,
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 24.0,
@@ -82,7 +85,7 @@ class _WorkoutDetailState extends State<WorkoutDetail> {
                                     OutlinedButton(
                                       onPressed: () {},
                                       child: Text(
-                                        '12 WORKOUTS',
+                                        '${widget.workoutList.length} WORKOUTS',
                                         style: TextStyle(
                                             color: Colors.black, fontSize: 12),
                                       ),
@@ -105,7 +108,8 @@ class _WorkoutDetailState extends State<WorkoutDetail> {
                               onPressed: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => ExerciseView(workoutList: _workoutsList),
+                                  builder: (context) =>
+                                      ExerciseView(workoutList: _workoutsList),
                                 ),
                               ),
                               backgroundColor: Colors.black,
@@ -119,7 +123,7 @@ class _WorkoutDetailState extends State<WorkoutDetail> {
                           children: [
                             for (Map<String, dynamic> workout in _workoutsList)
                               WorkoutListItem(
-                                workout: workout['name'],
+                                workout: workout,
                                 key: ValueKey(new Random().nextInt(1000)),
                               )
                           ],

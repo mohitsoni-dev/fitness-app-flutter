@@ -2,8 +2,12 @@ import 'package:fitness_app_flutter/ui/views/workout_detail.dart';
 import 'package:flutter/material.dart';
 
 class WorkoutProgramCard extends StatelessWidget {
-  const WorkoutProgramCard({Key? key, required this.desc, required this.title, required this.workoutList,})
-      : super(key: key);
+  const WorkoutProgramCard({
+    Key? key,
+    required this.desc,
+    required this.title,
+    required this.workoutList,
+  }) : super(key: key);
   final String title;
   final String desc;
   final List<Map<String, dynamic>> workoutList;
@@ -34,8 +38,11 @@ class WorkoutProgramCard extends StatelessWidget {
               ),
               SizedBox(width: 8.0),
               OutlinedButton(
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => WorkoutDetail(workoutList: workoutList))),
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => WorkoutDetail(
+                            workoutList: workoutList, title: title))),
                 child: Text(
                   'START',
                   style: TextStyle(color: Colors.black, fontSize: 12),

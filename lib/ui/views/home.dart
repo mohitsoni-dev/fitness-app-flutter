@@ -159,7 +159,12 @@ class _HomePageState extends State<HomePage> {
             ),
             listViewRow("Workout", LineIcons.clock, context, 0),
             listViewRow("Saved Workout", LineIcons.download, context, 1),
-            listViewRow("Streak-${streak}", LineIcons.fire, context, 2,),
+            listViewRow(
+              "Streak-$streak",
+              LineIcons.fire,
+              context,
+              2,
+            ),
             listViewRow("Sleep Asmr", LineIcons.peace, context, 3),
             listViewRow("Inbox", LineIcons.inbox, context, 4),
             listViewRow("Settings", Icons.settings, context, 5),
@@ -187,7 +192,6 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 22.0),
                       ),
-                      Text('Your streak: $streak'),
                       SizedBox(height: 12.0),
                       Text(
                         'Looks like it\'s a good day to have a solid workout! Don\'t miss it!',

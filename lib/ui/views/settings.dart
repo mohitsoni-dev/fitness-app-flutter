@@ -33,6 +33,10 @@ class _SettingsState extends State<Settings> {
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
         foregroundColor: Colors.transparent,
+        title: Text(
+          'Settings',
+          style: TextStyle(color: Colors.black),
+        ),
         actions: [
           PopupMenuButton<String>(
             onSelected: (
@@ -73,7 +77,6 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   profilePicWidget(),
-
                   userNameTextWidget("$userName"),
                   //TODO values to be added from database
                   midview(context, userWeight.toString(),
