@@ -47,27 +47,18 @@ const List<Map<String, dynamic>> chest_workouts = [
 
 const List<Map<String, dynamic>> legs_workouts = [
   {
-    'name': 'Push Ups',
+    'name': 'Squat',
     'caterory': 'Strength',
-    'muscleGroup': 'Chest',
+    'muscleGroup': 'Legs',
     'isTimeBased': false,
     'duration': null,
-    'reps': 12,
+    'reps': 10,
     'image': ''
   },
   {
-    'name': 'Rest',
-    'caterory': 'Misc',
-    'muscleGroup': 'None',
-    'isTimeBased': true,
-    'duration': 30,
-    'reps': null,
-    'image': ''
-  },
-  {
-    'name': 'Push Ups',
+    'name': 'Lunge',
     'caterory': 'Strength',
-    'muscleGroup': 'Chest',
+    'muscleGroup': 'Legs',
     'isTimeBased': false,
     'duration': null,
     'reps': 10,
@@ -82,27 +73,29 @@ const List<Map<String, dynamic>> legs_workouts = [
     'reps': null,
     'image': ''
   },
+
   {
-    'name': 'Incline Push Ups',
+    'name': 'Side Lunge',
     'caterory': 'Strength',
-    'muscleGroup': 'Chest',
+    'muscleGroup': 'Legs',
+    'isTimeBased': false,
+    'duration': null,
+    'reps': 10,
+    'image': ''
+  },
+
+  {
+    'name': 'Calf Raise',
+    'caterory': 'Strength',
+    'muscleGroup': 'Legs',
     'isTimeBased': true,
-    'duration': 25.0,
+    'duration': 30.0,
     'image': ''
   },
 ];
 const List<Map<String, dynamic>> arms_workouts = [
   {
-    'name': 'Push Ups',
-    'caterory': 'Strength',
-    'muscleGroup': 'Chest',
-    'isTimeBased': false,
-    'duration': null,
-    'reps': 12,
-    'image': ''
-  },
-  {
-    'name': 'Rest',
+    'name': 'Cardio',
     'caterory': 'Misc',
     'muscleGroup': 'None',
     'isTimeBased': true,
@@ -111,9 +104,10 @@ const List<Map<String, dynamic>> arms_workouts = [
     'image': ''
   },
   {
+
     'name': 'Push Ups',
     'caterory': 'Strength',
-    'muscleGroup': 'Chest',
+    'muscleGroup': 'Arms',
     'isTimeBased': false,
     'duration': null,
     'reps': 10,
@@ -128,10 +122,21 @@ const List<Map<String, dynamic>> arms_workouts = [
     'reps': null,
     'image': ''
   },
+
   {
-    'name': 'Incline Push Ups',
+    'name': 'Triceps dip ',
     'caterory': 'Strength',
     'muscleGroup': 'Chest',
+    'isTimeBased': false,
+    'duration': null,
+    'reps': 12,
+    'image': ''
+  },
+
+  {
+    'name': 'Bodyweight Dips',
+    'caterory': 'Strength',
+    'muscleGroup': 'Arms',
     'isTimeBased': true,
     'duration': 25.0,
     'image': ''
@@ -139,27 +144,18 @@ const List<Map<String, dynamic>> arms_workouts = [
 ];
 const List<Map<String, dynamic>> shoulder_workouts = [
   {
-    'name': 'Push Ups',
+    'name': 'Lateral raise',
     'caterory': 'Strength',
     'muscleGroup': 'Chest',
     'isTimeBased': false,
     'duration': null,
-    'reps': 12,
+    'reps': 10,
     'image': ''
   },
   {
-    'name': 'Rest',
-    'caterory': 'Misc',
-    'muscleGroup': 'None',
-    'isTimeBased': true,
-    'duration': 30,
-    'reps': null,
-    'image': ''
-  },
-  {
-    'name': 'Push Ups',
+    'name': 'Front raise',
     'caterory': 'Strength',
-    'muscleGroup': 'Chest',
+    'muscleGroup': 'Shoulder',
     'isTimeBased': false,
     'duration': null,
     'reps': 10,
@@ -174,12 +170,23 @@ const List<Map<String, dynamic>> shoulder_workouts = [
     'reps': null,
     'image': ''
   },
+
   {
-    'name': 'Incline Push Ups',
+    'name': 'Plank',
     'caterory': 'Strength',
-    'muscleGroup': 'Chest',
-    'isTimeBased': true,
-    'duration': 25.0,
+    'muscleGroup': 'Shoulder',
+    'isTimeBased': false,
+    'duration': null,
+    'reps': 10,
+    'image': ''
+  },
+  {
+    'name': 'Side Plank',
+    'caterory': 'Strength',
+    'muscleGroup': 'Shoulder',
+    'isTimeBased': false,
+    'duration': null,
+    'reps': 10,
     'image': ''
   },
 ];
