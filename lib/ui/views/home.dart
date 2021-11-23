@@ -214,24 +214,28 @@ class _HomePageState extends State<HomePage> {
                               desc:
                                   'This workout program is design to build your chest muscles',
                               workoutList: chest_workouts,
+                               imageLink: "https://images.unsplash.com/photo-1579047172169-515291e29467?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80"
                             ),
                             WorkoutProgramCard(
                               title: 'Legs Workout',
                               desc:
                                   'This workout program is design to build your legs muscles',
                               workoutList: chest_workouts,
+                              imageLink: 'https://i0.wp.com/vshred.com/blog/wp-content/uploads/2018/06/Leg-Extensions.jpg',
                             ),
                             WorkoutProgramCard(
                               title: 'Arms Workout',
                               desc:
                                   'This workout program is design to build your arms muscles',
                               workoutList: chest_workouts,
+                              imageLink: 'https://generalhealthmagazine.files.wordpress.com/2018/06/triceps-pull-down.jpg?w=682',
                             ),
                             WorkoutProgramCard(
                               title: 'Shoulder Workout',
                               desc:
                                   'This workout program is design to build your shoulder muscles',
                               workoutList: chest_workouts,
+                              imageLink: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pull-ups-royalty-free-image-1568225395.jpg',
                             ),
                           ],
                         ),
