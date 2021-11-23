@@ -30,13 +30,13 @@ class WorkoutProgramCard extends StatelessWidget {
           SizedBox(height: 4.0),
           Row(
             children: [
-              OutlinedButton(
-                onPressed: () {},
-                child: Text(
-                  'INFO',
-                  style: TextStyle(color: Colors.black, fontSize: 12),
-                ),
-              ),
+              // OutlinedButton(
+              //   onPressed: () {},
+              //   child: Text(
+              //     'INFO',
+              //     style: TextStyle(color: Colors.black, fontSize: 12),
+              //   ),
+              // ),
               SizedBox(width: 8.0),
               OutlinedButton(
                 onPressed: () => Navigator.push(

@@ -1,12 +1,10 @@
 import 'package:fitness_app_flutter/constants/shared_preferences.dart';
-import 'package:fitness_app_flutter/ui/views/home.dart';
+import 'package:fitness_app_flutter/ui/views/about_us.dart';
 import 'package:fitness_app_flutter/ui/views/sleep_asmr.dart';
 import 'package:fitness_app_flutter/ui/widget/settings_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:fitness_app_flutter/ui/views/about_us.dart';
-
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -71,25 +69,22 @@ class _SettingsState extends State<Settings> {
         future: getDataFromCache(),
         builder: (BuildContext ctxt, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
-            String bmi = (userWeight / userHeight * userHeight).toString();
+            String bmi = (userWeight / (userHeight * userHeight)).toString();
             return SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   profilePicWidget(),
                   userNameTextWidget(userName, context),
-                  //TODO values to be added from database
+
                   midview(context, userWeight.toString(),
-                      bmi.toString().substring(0, 3), userHeight.toString()),
+                      bmi.toString().substring(0, 4), userHeight.toString()),
                   DividerWidget(),
-                  weeklyProgressTextWiget("Weekly Progress"),
-                  //TODO progress value to be added from database
-                  weeklyProgressBarWidget(),
-                  //TODO Recent seven days of the week to be added from database
-                  weekdaysTextwidget(),
+                  //weeklyProgressTextWiget("Weekly Progress"),
+                  //weeklyProgressBarWidget(),
+                 // weekdaysTextwidget(),
                   DividerWidget(),
-                  weeklyProgressTextWiget("Recent Exercise"),
-                  //TODO recent exercise from database to be added
+                  weeklyProgressTextWiget("Popular Exercise"),
                   recentExerciseViewWidget(context)
                   //
                 ],
