@@ -44,12 +44,11 @@ getBoolValuesSF(String? tag) async {
   return boolValue;
 }
 
-// getIntValuesSF() async {
-//   SharedPreferences prefs = await SharedPreferences.getInstance();
-//   //Return int
-//   int intValue = prefs.getInt('intValue');
-//   return intValue;
-// }
+getIntValuesSF(String? tag) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  int stringValue = prefs.getInt(tag!) ?? 0;
+  return stringValue;
+}
 getDoubleValuesSF(String? tag) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   double stringValue = prefs.getDouble(tag!) ?? 0.0;

@@ -77,7 +77,7 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   profilePicWidget(),
-                  userNameTextWidget("$userName"),
+                  userNameTextWidget(userName, context),
                   //TODO values to be added from database
                   midview(context, userWeight.toString(),
                       bmi.toString().substring(0, 3), userHeight.toString()),

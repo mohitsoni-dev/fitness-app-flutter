@@ -6,10 +6,6 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   centerTitle: true,
-      //   title: Text('About Privacy Guide'),
-      // ),
       body: SingleChildScrollView(
         child: Container(
           color: Colors.white,

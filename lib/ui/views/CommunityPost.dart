@@ -25,50 +25,50 @@ class _CommunityPostState extends State<CommunityPost> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-        body: Column(
-          children: [
-            textFieldView(context), //todo search bar algorithm to made
-            Expanded(
-              child: SingleChildScrollView(
-                  child: RefreshIndicator(
-                onRefresh: () => _bloc?.fetchQuestionList(),
-                child: StreamBuilder<ApiResponse<List<Question>>>(
-                  stream: _bloc?.questionListStream,
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      switch (snapshot.data?.status) {
-                        case Status.LOADING:
-                          return Center(child: CircularProgressIndicator());
-                        case Status.COMPLETED:
-                          return ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: snapshot.data?.data?.length,
-                            itemBuilder: (BuildContext ctxt, int index) =>
-                                PostOfCommunity(
-                                    question: snapshot.data?.data?[index]),
-                          );
-                        default:
-                          return Text('No Internet Connection');
-                      }
-                    } else
-                      return Container();
-                  },
-                ),
-              )),
-            )
-          ],
+      body: Column(
+        children: [
+          textFieldView(context), //todo search bar algorithm to made
+          Expanded(
+            child: SingleChildScrollView(
+                child: RefreshIndicator(
+              onRefresh: () => _bloc?.fetchQuestionList(),
+              child: StreamBuilder<ApiResponse<List<Question>>>(
+                stream: _bloc?.questionListStream,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    switch (snapshot.data?.status) {
+                      case Status.LOADING:
+                        return Center(child: CircularProgressIndicator());
+                      case Status.COMPLETED:
+                        return ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: snapshot.data?.data?.length,
+                          itemBuilder: (BuildContext ctxt, int index) =>
+                              PostOfCommunity(
+                                  question: snapshot.data?.data?[index]),
+                        );
+                      default:
+                        return Text('No Internet Connection');
+                    }
+                  } else
+                    return Container();
+                },
+              ),
+            )),
+          )
+        ],
+      ),
+      floatingActionButton: Align(
+        child: FloatingActionButton(
+          onPressed: () {
+            Navigator.of(context).push(HeroDialogRoute(builder: (context) {
+              return AskQuestion(onSubmit: _bloc?.postQuestion);
+            }));
+          },
+          child: Icon(Icons.add),
         ),
-        floatingActionButton: Align(
-          child: FloatingActionButton(
-            onPressed: () {
-              Navigator.of(context).push(HeroDialogRoute(builder: (context) {
-                return AskQuestion(onSubmit: _bloc?.postQuestion);
-              }));
-            },
-            child: Icon(Icons.add),
-          ),
-          alignment: Alignment(1, 0.75),
-        ));
+        alignment: Alignment(1, 0.75),
+      ),
+    );
   }
 }
