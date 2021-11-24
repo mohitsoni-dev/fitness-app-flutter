@@ -4,6 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 Widget feedSection({required BuildContext context, Article? article}) {
   String? url = article?.source;
+  String? imageLink = article?.image;
   return InkWell(
     child: Padding(
       padding: const EdgeInsets.all(8.0),
@@ -37,7 +38,7 @@ Widget feedSection({required BuildContext context, Article? article}) {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Text(article?.author ?? ''),
-                      Text("3 min read"),
+                     // Text("3 min read"),
                       Icon(Icons.star)
                     ],
                   ),
@@ -52,7 +53,8 @@ Widget feedSection({required BuildContext context, Article? article}) {
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: NetworkImage(
-                        "https://static01.nyt.com/images/2021/01/30/business/29musk-print/29musk-1-mediumSquareAt3X.jpg"),
+                        //"https://static01.nyt.com/images/2021/01/30/business/29musk-print/29musk-1-mediumSquareAt3X.jpg"
+                      "$imageLink" ),
                     fit: BoxFit.contain)),
           ),
         ],
