@@ -1,10 +1,12 @@
 import 'package:fitness_app_flutter/constants/shared_preferences.dart';
 import 'package:fitness_app_flutter/ui/views/about_us.dart';
+import 'package:fitness_app_flutter/ui/views/register_screen.dart';
 import 'package:fitness_app_flutter/ui/views/sleep_asmr.dart';
 import 'package:fitness_app_flutter/ui/widget/settings_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -39,13 +41,23 @@ class _SettingsState extends State<Settings> {
         ),
         actions: [
           PopupMenuButton<String>(
-            onSelected: (String choice) {
+            onSelected: (String choice) async {
               if (choice == 'About us') {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => AboutPage()));
               } else if (choice == 'Sign Out') {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SleepAsmr()));
+                SharedPreferences preferences = await SharedPreferences.getInstance();
+                await preferences.clear();
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => RegisterScreen(),
+                  ),
+                      (route) => false,
+                );
+
+                // Navigator.push(context,
+                //     MaterialPageRoute(builder: (context) => RegisterScreen()));
               }
             },
             icon: Icon(
