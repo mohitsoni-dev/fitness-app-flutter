@@ -90,12 +90,12 @@ class _SettingsState extends State<Settings> {
                   userNameTextWidget(userName, context),
 
                   midview(context, userWeight.toString(),
-                      bmi.toString().substring(0, 3), userHeight.toString()),
+                      bmi.toString().substring(0, 4), userHeight.toString()),
                   DividerWidget(),
                   //weeklyProgressTextWiget("Weekly Progress"),
                   //weeklyProgressBarWidget(),
                  // weekdaysTextwidget(),
-                  DividerWidget(),
+                  // DividerWidget(),
                   weeklyProgressTextWiget("Popular Exercise"),
                   recentExerciseViewWidget(context)
                   //

@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fitness_app_flutter">
    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+   <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="fitness_app_flutter"
         android:icon="@mipmap/ic_launcher">

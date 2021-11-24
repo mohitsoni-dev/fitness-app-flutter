@@ -21,6 +21,7 @@ Widget feedSection({required BuildContext context, Article? article}) {
               child: Column(
                 /*column*/
                 mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Padding(
