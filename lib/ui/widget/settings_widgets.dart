@@ -198,7 +198,7 @@ Widget progressBarWidget(int value) {
     backgroundColor: Colors.black12,
     direction: Axis.vertical,
     verticalDirection: VerticalDirection.up,
-    currentValue: value,
+    currentValue: value.toDouble(),
     progressColor: Colors.black,
   );
 }

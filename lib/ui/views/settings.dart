@@ -46,14 +46,15 @@ class _SettingsState extends State<Settings> {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => AboutPage()));
               } else if (choice == 'Sign Out') {
-                SharedPreferences preferences = await SharedPreferences.getInstance();
+                SharedPreferences preferences =
+                    await SharedPreferences.getInstance();
                 await preferences.clear();
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(
                     builder: (BuildContext context) => RegisterScreen(),
                   ),
-                      (route) => false,
+                  (route) => false,
                 );
 
                 // Navigator.push(context,
@@ -89,12 +90,17 @@ class _SettingsState extends State<Settings> {
                   profilePicWidget(),
                   userNameTextWidget(userName, context),
 
-                  midview(context, userWeight.toString(),
-                      bmi.toString().substring(0, 4), userHeight.toString()),
+                  midview(
+                      context,
+                      userWeight.toString(),
+                      (userHeight * userHeight) == 0
+                          ? bmi.toString()
+                          : bmi.toString().substring(0, 3),
+                      userHeight.toString()),
                   DividerWidget(),
                   //weeklyProgressTextWiget("Weekly Progress"),
                   //weeklyProgressBarWidget(),
-                 // weekdaysTextwidget(),
+                  // weekdaysTextwidget(),
                   // DividerWidget(),
                   weeklyProgressTextWiget("Popular Exercise"),
                   recentExerciseViewWidget(context)
